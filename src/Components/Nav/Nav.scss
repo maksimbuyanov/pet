@@ -1,0 +1,101 @@
+@import "src/vars";
+
+.nav {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  color: white;
+  text-transform: uppercase;
+  margin: 20px auto;
+  border: 3px solid gold;
+  width: min-content;
+  background-color: gold;
+  border-radius: 10px;
+
+  &__item {
+    position: relative;
+    padding: 30px 30px 30px 60px;
+    text-decoration: none;
+    background-color: $nav-active-link;
+    margin-right: 5px;
+    line-height: $nav-lineHeight;
+    font-size: $nav-lineHeight;
+    transition: 0.3s ease;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-left: $size2 solid gold;
+      border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -$size2;
+      height: 0;
+      width: 0;
+      border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-left: $size2 solid $nav-active-link;
+      border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      z-index: 10;
+      transition: 0.3s ease;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      &::before {
+        content: '';
+        border: none;
+      }
+    }
+
+    &:hover {
+      background-color: #568092;
+
+      &::after {
+        border-left: $size2 solid #568092;
+      }
+    }
+
+    &_after-border {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -$size2;
+      height: 0;
+      width: 0;
+      border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-left: $size2 solid gold;
+      border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      z-index: 10;
+      transition: 0.3s ease;
+    }
+
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -$size2;
+    height: 0;
+    width: 0;
+    border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    border-left: $size2 solid gold;
+    border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    transition: 0.3s ease;
+  }
+
+
+}
