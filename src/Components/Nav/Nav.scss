@@ -23,29 +23,29 @@
     transition: 0.3s ease;
 
     &::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: 0;
       left: 0;
       height: 0;
       width: 0;
-      border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
       border-left: $size2 solid gold;
-      border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
     }
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: 0;
       right: -$size2;
       height: 0;
       width: 0;
-      border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
       border-left: $size2 solid $nav-active-link;
-      border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
       z-index: 10;
       transition: 0.3s ease;
     }
@@ -54,48 +54,30 @@
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px;
       &::before {
-        content: '';
+        content: "";
         border: none;
       }
     }
 
-    &:hover {
+    &_active {
       background-color: #568092;
 
       &::after {
         border-left: $size2 solid #568092;
       }
     }
-
-    &_after-border {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: -$size2;
-      height: 0;
-      width: 0;
-      border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      border-left: $size2 solid gold;
-      border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      z-index: 10;
-      transition: 0.3s ease;
-    }
-
   }
   &::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
     right: -$size2;
     height: 0;
     width: 0;
-    border-top: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
     border-left: $size2 solid gold;
-    border-bottom: calc( ( $nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
     transition: 0.3s ease;
   }
-
-
 }
