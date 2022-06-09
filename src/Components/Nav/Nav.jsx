@@ -1,7 +1,9 @@
 import React from "react"
 import "./Nav.scss"
+import { useSelector } from "react-redux"
 
 function Nav(props) {
+  const step = useSelector(s => s.initializing.step)
   return (
     <ul className="nav">
       <li className="nav__item">
@@ -21,6 +23,7 @@ function Nav(props) {
       <li className="nav__item">Седьмой</li>
       <li className="nav__item">Восьмой</li>
       <li className="nav__item">Девятый</li>
+      {step}
     </ul>
   )
 }
