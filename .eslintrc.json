@@ -31,6 +31,7 @@
     "camelcase": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "object-curly-newline": "off"
   }
 }

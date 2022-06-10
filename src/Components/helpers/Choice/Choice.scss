@@ -2,14 +2,32 @@
 
 .choice {
   display: flex;
+  align-items: stretch;
   justify-content: center;
-  align-items: center;
   margin-top: 50px;
 
   &__card {
-    border-radius: $size;
-    background: white;
+    display: flex;
+    max-width: 33%;
+    flex-direction: column;
+    justify-content: space-between;
     margin-right: $size2;
+    background: white;
+    border-radius: $size;
+    box-shadow: $shadow-prime;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      box-shadow: $choice-card-shadow;
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      box-shadow: $choice-card-shadow;
+      outline: none;
+      transform: scale(1.1);
+    }
 
     &:last-child {
       margin-right: unset;
@@ -22,25 +40,34 @@
   }
 
   &__item {
+    font-size: $size;
+    line-height: 200%;
     text-transform: uppercase;
-    line-height: 300%;
-    font-size: 20px;
 
     &::before {
-      content: '✓';
       margin-right: 5px;
+      content: "✓";
+    }
+
+    &_text {
+      padding: $size;
+
+      &::before {
+        content: "";
+      }
     }
   }
 
   &__title {
     padding: $size;
+    border-bottom-left-radius: $size;
+    border-bottom-right-radius: $size;
+    color: white;
     font-size: $size2;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    color: white;
-    border-bottom-left-radius: $size;
-    border-bottom-right-radius: $size;
+
     &_blue {
       background: $choice-card-bg-blue;
     }

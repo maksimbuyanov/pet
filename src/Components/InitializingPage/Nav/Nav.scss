@@ -1,61 +1,63 @@
 @import "../../../vars";
 
 .nav {
-  display: flex;
   position: relative;
-  justify-content: center;
-  color: white;
-  text-transform: uppercase;
-  margin: 0 auto;
-  border: 3px solid gold;
+  display: flex;
   width: min-content;
+  justify-content: center;
+  border: 3px solid gold;
+  margin: 0 auto;
   background-color: gold;
   border-radius: 10px;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: $shadow-prime;
 
   &__item {
     position: relative;
     padding: 30px 30px 30px 60px;
-    text-decoration: none;
-    background-color: $nav-active-link;
     margin-right: 5px;
-    line-height: $nav-lineHeight;
+    background-color: $nav-active-link;
     font-size: $nav-lineHeight;
+    line-height: $nav-lineHeight;
+    text-decoration: none;
     transition: 0.3s ease;
 
     &::before {
-      content: "";
-      display: block;
       position: absolute;
       top: 0;
       left: 0;
-      height: 0;
+      display: block;
       width: 0;
+      height: 0;
       border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      border-left: $size2 solid gold;
       border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-left: $size2 solid gold;
+      content: "";
     }
 
     &::after {
-      content: "";
-      display: block;
       position: absolute;
+      z-index: 10;
       top: 0;
       right: -$size2;
-      height: 0;
+      display: block;
       width: 0;
+      height: 0;
       border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      border-left: $size2 solid $nav-active-link;
       border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      z-index: 10;
+      border-left: $size2 solid $nav-active-link;
+      content: "";
       transition: 0.3s ease;
     }
 
     &:first-child {
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px;
+
       &::before {
-        content: "";
         border: none;
+        content: "";
       }
     }
 
@@ -67,17 +69,18 @@
       }
     }
   }
+
   &::after {
-    content: "";
-    display: block;
     position: absolute;
     top: 0;
     right: -$size2;
-    height: 0;
+    display: block;
     width: 0;
+    height: 0;
     border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-    border-left: $size2 solid gold;
     border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    border-left: $size2 solid gold;
+    content: "";
     transition: 0.3s ease;
   }
 }

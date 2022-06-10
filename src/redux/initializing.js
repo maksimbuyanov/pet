@@ -7,6 +7,7 @@ const initialState = {
   step: 0,
   isGameReady: false,
   cash: 4000000,
+  settings: [],
 }
 
 // eslint-disable-next-line default-param-last
@@ -15,7 +16,9 @@ export default (state = initialState, { type, payload }) => {
     case NEXT_STEP:
       return {
         ...state,
+        settings: [...state.settings, payload.title],
         step: state.step + 1,
+        cash: state.cash - payload.cost,
       }
     case TOGGLE_GAME:
       return {

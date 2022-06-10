@@ -2,14 +2,13 @@
 
 .dialog {
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
 
   &__person {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     padding: 30px;
 
     &_img {
@@ -36,9 +35,9 @@
     display: block;
     width: 0;
     height: 0;
-    border-top: calc(($size / 2) + 15px) solid transparent; // высота строки пополам + паддинг сверху
+    border-top: calc(15px / 2 + 15px) solid transparent; // высота строки пополам + паддинг сверху
     border-right: $size2 solid white;
-    border-bottom: calc(($size / 2) + 15px) solid transparent; // высота строки пополам + паддинг сверху
+    border-bottom: calc(15px / 2 + 15px) solid transparent; // высота строки пополам + паддинг сверху
     content: "";
     transform: translateY(-50%);
   }
@@ -47,11 +46,11 @@
     align-self: center;
     margin-bottom: $size;
     font-size: $size2;
-    line-height: $size2;
     font-weight: bolder;
+    line-height: $size2;
   }
 
   &__text {
-
+    line-height: normal;
   }
 }

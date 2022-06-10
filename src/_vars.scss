@@ -44,10 +44,11 @@ $choice-card-bg-red: linear-gradient(45deg, rgb(131 58 180 / 100%) 0%, rgb(253 2
 $choice-card-bg-blue: linear-gradient(45deg, rgb(47 29 253 / 100%) 0%, rgb(16 98 246 / 100%) 46%, rgb(69 153 252 / 100%) 100%);
 $choice-card-bg-green: linear-gradient(45deg, rgb(25 185 7 / 100%) 0%, rgb(19 199 43 / 100%) 46%, rgb(33 184 139 / 100%) 100%)  ;
 $choice-card-bg-orange: linear-gradient(45deg, rgb(250 177 59 / 100%) 0%, rgb(238 125 12 / 100%) 63%, rgb(255 252 0 / 100%) 100%);
+$choice-card-shadow: 0 0 20px 9px #d7d7d7d1;
 
 // Shadow
 
-$shadow-prime: 4px 4px 4px #5680929c;
+$shadow-prime: -4px 4px 4px #0000009c;
 $shadow-white: 4px 4px 4px $light-silver;
 $shadow-input: 0 0 4px 3px #5680929c;
 
