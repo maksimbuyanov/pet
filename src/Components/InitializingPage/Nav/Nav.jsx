@@ -1,13 +1,16 @@
 import React from "react"
 import "./Nav.scss"
 import { useSelector } from "react-redux"
-import { nav_steps } from "../helpers/text"
+import { nav_steps } from "../../helpers/text"
+import { getStep } from "../../../redux/initializing"
 
-function Nav(props) {
-  const step = useSelector(s => s.initializing.step)
+function Nav() {
+  // const { pathname } = useLocation()
+  const step = useSelector(getStep)
   const navItems = nav_steps.map((text, index) => {
     const styles = ["nav__item"]
     if (step === index) {
+      // if (pathname === `/${index}` || (pathname === `/` && index === 0)) {
       styles.push("nav__item_active")
     }
     return (

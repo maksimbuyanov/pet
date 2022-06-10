@@ -1,15 +1,25 @@
 import React from "react"
-import "./App.css"
-import { BrowserRouter, Route} from "react-router-dom"
-import Nav from "./Components/Nav/Nav"
+import "./App.scss"
+import { useSelector } from "react-redux"
+import Start from "./Components/InitializingPage/Start"
+import Game from "./Components/Game/Game"
+import { getGameStatus } from "./redux/initializing"
 
 function App() {
+  const isGameReady = useSelector(getGameStatus)
   return (
-    <div className="App">
-      <Nav />
-      <BrowserRouter>
-        {/* <Route path="*" element={} /> */}
-      </BrowserRouter>
+    <div className="app">
+      {isGameReady ? <Game /> : <Start />}
+      {/* <BrowserRouter> */}
+      {/*   <Routes> */}
+      {/*     { */}
+      {/*        */}
+      {/*     } */}
+      {/*     <Route path="/" element={<Start />} /> */}
+
+      {/*     {isGameReady && <Route path="/game" element={<Game />} />} */}
+      {/*   </Routes> */}
+      {/* </BrowserRouter> */}
     </div>
   )
 }

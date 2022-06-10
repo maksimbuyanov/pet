@@ -39,6 +39,12 @@ $empty: $silver;
 $warning: $red;
 $prime: $smalt-blue;
 
+// Choice card
+$choice-card-bg-red: linear-gradient(45deg, rgb(131 58 180 / 100%) 0%, rgb(253 29 29 / 100%) 0%, rgb(253 50 35 / 100%) 46%, rgb(252 176 69 / 100%) 100%);
+$choice-card-bg-blue: linear-gradient(45deg, rgb(47 29 253 / 100%) 0%, rgb(16 98 246 / 100%) 46%, rgb(69 153 252 / 100%) 100%);
+$choice-card-bg-green: linear-gradient(45deg, rgb(25 185 7 / 100%) 0%, rgb(19 199 43 / 100%) 46%, rgb(33 184 139 / 100%) 100%)  ;
+$choice-card-bg-orange: linear-gradient(45deg, rgb(250 177 59 / 100%) 0%, rgb(238 125 12 / 100%) 63%, rgb(255 252 0 / 100%) 100%);
+
 // Shadow
 
 $shadow-prime: 4px 4px 4px #5680929c;
@@ -49,7 +55,6 @@ $shadow-input: 0 0 4px 3px #5680929c;
 $text-color-grey: #636363;
 $text-color-black: #000;
 $text-color-white: #fff;
-
 $nav-lineHeight: 30px;
 
 // Fonts

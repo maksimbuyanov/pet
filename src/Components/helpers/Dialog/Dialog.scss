@@ -1,0 +1,57 @@
+@import "src/vars";
+
+.dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__person {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+    &_img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+.cloud {
+  position: relative;
+  display: flex;
+  max-width: 40%;
+  height: min-content;
+  flex-direction: column;
+  padding: $size2;
+  background: white;
+  border-radius: $size;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: -$size2;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: calc(($size / 2) + 15px) solid transparent; // высота строки пополам + паддинг сверху
+    border-right: $size2 solid white;
+    border-bottom: calc(($size / 2) + 15px) solid transparent; // высота строки пополам + паддинг сверху
+    content: "";
+    transform: translateY(-50%);
+  }
+
+  &__title {
+    align-self: center;
+    margin-bottom: $size;
+    font-size: $size2;
+    line-height: $size2;
+    font-weight: bolder;
+  }
+
+  &__text {
+
+  }
+}
