@@ -40,7 +40,9 @@ function Choice({ positionClass, cardsArr }) {
         {isArray ? (
           <ul className="choice__list">
             {listItems.map(listItem => (
-              <li className="choice__item">{listItem}</li>
+              <li className="choice__item" key={listItem}>
+                {listItem}
+              </li>
             ))}
           </ul>
         ) : (

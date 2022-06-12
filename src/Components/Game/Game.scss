@@ -1,0 +1,73 @@
+@import "src/vars";
+
+.game {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../image/cafe.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+  grid-template-areas:
+    "status status status status status"
+    "goose dialog dialog dialog actions"
+    " goose dialog dialog dialog actions";
+  grid-template-columns: 15% 1fr 20% 10% 30%;
+  grid-template-rows: max-content 1fr 1fr;
+
+  &__status {
+    grid-area: status;
+  }
+
+  &__dialog {
+    width: 100%;
+    padding: $size;
+    border-radius: $size;
+    grid-area: dialog;
+  }
+
+  &__actions {
+    grid-area: actions;
+  }
+
+  &__goose {
+    grid-area: goose;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  padding: 0 $size $size 0;
+  gap: $size;
+
+  &__item {
+    display: flex;
+    padding: $size;
+    background: $choice-card-bg-green;
+    border-radius: $size;
+    font-size: 25px;
+  }
+}
+
+.goose {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 $size $size;
+  gap: $size;
+
+  &__item {
+    display: flex;
+    padding: $size;
+    text-align: center;
+    background-color: black;
+    border-radius: $size;
+    color: white;
+    font-size: $size2;
+    align-items: center;
+    justify-content: center;
+  }
+}

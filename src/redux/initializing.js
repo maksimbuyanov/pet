@@ -5,9 +5,10 @@ const EXPENSE = "EXPENSE" // расходы
 
 const initialState = {
   step: 0,
-  isGameReady: false,
+  isGameReady: true,
   cash: 4000000,
   settings: [],
+  cafeName: "null null",
 }
 
 // eslint-disable-next-line default-param-last
@@ -24,6 +25,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isGameReady: true,
+        cafeName: payload,
       }
     case SET_CASH:
       return {
@@ -45,7 +47,7 @@ export const newExpense = payload => ({
   payload,
 })
 
-export const toggleGame = payload => ({
+export const startGame = payload => ({
   type: TOGGLE_GAME,
   payload,
 })
@@ -57,3 +59,4 @@ export const nextStep = payload => ({
 export const getCash = state => state.initializing.cash
 export const getGameStatus = state => state.initializing.isGameReady
 export const getStep = state => state.initializing.step
+export const getCafeName = state => state.initializing.cafeName

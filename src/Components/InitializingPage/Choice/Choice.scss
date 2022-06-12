@@ -16,7 +16,7 @@
     border-radius: $size;
     box-shadow: $shadow-prime;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       box-shadow: $choice-card-shadow;
@@ -35,13 +35,12 @@
   }
 
   &__list {
-    padding: $size;
-    padding-left: 10px;
+    padding: $size $size $size 10px;
   }
 
   &__item {
-    font-size: $size;
-    line-height: 200%;
+    font-size: 20px;
+    line-height: 150%;
     text-transform: uppercase;
 
     &::before {

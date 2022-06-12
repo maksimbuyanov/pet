@@ -3,15 +3,15 @@
 .nav {
   position: relative;
   display: flex;
-  width: min-content;
+  width: max-content;
   justify-content: center;
   border: 3px solid gold;
   margin: 0 auto;
   background-color: gold;
   border-radius: 10px;
+  box-shadow: $shadow-prime;
   color: white;
   text-transform: uppercase;
-  box-shadow: $shadow-prime;
 
   &__item {
     position: relative;
@@ -30,8 +30,8 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-top: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
       border-left: $size2 solid gold;
       content: "";
     }
@@ -44,8 +44,8 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-      border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+      border-top: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
       border-left: $size2 solid $nav-active-link;
       content: "";
       transition: 0.3s ease;
@@ -77,8 +77,8 @@
     display: block;
     width: 0;
     height: 0;
-    border-top: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
-    border-bottom: calc(($nav-lineHeight / 2) + 30px) solid transparent; // высота строки пополам + паддинг сверху
+    border-top: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
+    border-bottom: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
     border-left: $size2 solid gold;
     content: "";
     transition: 0.3s ease;

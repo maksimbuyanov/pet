@@ -1,7 +1,8 @@
 @import "src/vars";
 
 .initial {
-  width: 100vw;
+  position: relative;
+  width: 1920px;
   height: 100vh;
   padding: 20px;
   background: rgb(131 58 180);
@@ -15,7 +16,7 @@
   background-repeat: no-repeat;
 
   &__cash {
-    position: fixed;
+    position: absolute;
     top: 15%;
     left: 10%;
     display: flex;
@@ -39,10 +40,48 @@
     margin-top: 150px;
   }
 
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: $size3 auto 0;
+  }
 
+  &__label {
+    color: white;
+    font-size: $size2;
+  }
 
+  &__input {
+    padding: $size / 2 $size;
+    margin-right: $size;
+    border-radius: $size;
+    box-shadow: $shadow-prime;
+    font-size: $size2;
+    line-height: $size2;
+  }
 
-  //background-image: url("../../../src/image/background.webp");
+  &__button {
+    padding: $size / 2 $size;
+    background-color: white;
+    border-radius: $size;
+    box-shadow: $shadow-prime;
+    cursor: pointer;
+    font-size: $size2;
+    line-height: $size2;
+    transition: transform 0.3s ease, box-shadow  0.3s ease;
+
+    &:hover {
+      box-shadow: $shadow-input;
+      transform: translateY(-10px);
+    }
+
+    &:focus {
+      box-shadow: $shadow-input;
+      outline: none;
+      transform: translateY(-10px);
+    }
+  }
+
+  // background-image: url("../../../src/image/background.webp");
 }
-
-

@@ -1,0 +1,79 @@
+@import "src/vars";
+
+.status {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &__cafe-name {
+    padding: $size;
+    margin: 0 $size4;
+    background-color: #fff;
+    border-radius: $size;
+    color: black;
+    font-size: $size2;
+    font-weight: bold;
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    padding: $size $size4;
+    background-color: #fff;
+    border-radius: $size;
+    color: black;
+    font-size: $size2;
+    font-weight: bold;
+    line-height: 120%;
+  }
+
+  &__step {
+    display: flex;
+    align-items: stretch;
+    margin-right: $size2;
+    font-size: $size3;
+
+    &::before {
+      display: inline-block;
+      width: $size2;
+      height: $size2;
+      margin-right: $size;
+      content: url("../../../image/clock_coin.svg");
+    }
+  }
+
+  &__cash {
+    display: flex;
+    align-items: center;
+    margin-right: $size2;
+    font-size: $size3;
+
+    &::before {
+      display: inline-block;
+      width: $size3;
+      height: $size3;
+      margin-right: $size;
+      content: url("../../../image/coin.svg");
+    }
+  }
+
+  &__clients {
+    display: flex;
+    align-items: center;
+    font-size: $size3;
+
+    &::before {
+      display: inline-block;
+      width: $size3;
+      height: $size3;
+      margin-right: $size;
+      content: url("../../../image/clients_1_mono.svg");
+    }
+  }
+}
