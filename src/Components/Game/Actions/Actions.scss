@@ -1,1 +1,16 @@
 @import "src/vars";
+
+.actions {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 $size $size 0;
+  gap: $size;
+
+  &__item {
+    display: flex;
+    padding: $size;
+    background: $choice-card-bg-green;
+    border-radius: $size;
+    font-size: 25px;
+  }
+}

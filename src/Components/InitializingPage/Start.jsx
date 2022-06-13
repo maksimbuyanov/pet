@@ -1,12 +1,14 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useRef } from "react"
 import "./Start.scss"
 import { useDispatch, useSelector } from "react-redux"
-import { getCash, getStep, startGame } from "../../redux/initializing"
+import { getCash, getStep } from "../../redux/initializing"
 import Nav from "./Nav/Nav"
 import { moneySplitter } from "../helpers/parser"
 import Dialog from "../helpers/Dialog/Dialog"
 import Choice from "./Choice/Choice"
 import { setup } from "../helpers/text"
+import { startGame } from "../../redux/initializingActionsCreators"
 
 function Start() {
   const dispatch = useDispatch()
@@ -15,8 +17,8 @@ function Start() {
   const step = useSelector(getStep)
   const { dialog, choice } = setup[step]
   const isFinalStep = step < 9
-  const onSubmitName = () => {
-    debugger
+  const onSubmitName = e => {
+    e.preventDefault()
     dispatch(startGame(nameRef.current.value))
   }
   return (
@@ -43,6 +45,7 @@ function Start() {
               name="name"
               required={Boolean(1)}
               className="initial__input"
+              autoFocus={Boolean(1)}
             />
           </label>
           <button type="submit" className="initial__button">

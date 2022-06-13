@@ -1,7 +1,7 @@
 import React from "react"
 import "./Choice.scss"
 import { useDispatch } from "react-redux"
-import { nextStep } from "../../../redux/initializing"
+import { nextStep } from "../../../redux/initializingActionsCreators"
 
 function Choice({ positionClass, cardsArr }) {
   const dispatch = useDispatch()

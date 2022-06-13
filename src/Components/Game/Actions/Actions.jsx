@@ -1,8 +1,23 @@
 import React from "react"
 import "./Actions.scss"
 
-function Actions(props) {
-  return <div>Action</div>
+function Action({ onClick, action }) {
+  return (
+    <div
+      className="actions__item"
+      onClick={onClick}
+      key={action.title}
+      role="button"
+      tabIndex="0"
+      onKeyDown={e => {
+        if (e.code === "Enter") {
+          onClick()
+        }
+      }}
+    >
+      {action.title}
+    </div>
+  )
 }
 
-export default Actions
+export default Action

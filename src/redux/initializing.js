@@ -1,14 +1,16 @@
-const NEXT_STEP = "NEXT_STEP"
-const TOGGLE_GAME = "TOGGLE_GAME"
-const SET_CASH = "SET_CASH"
-const EXPENSE = "EXPENSE" // расходы
+import {
+  CHANGE_CASH,
+  NEXT_STEP,
+  SET_CASH,
+  TOGGLE_GAME,
+} from "../Components/helpers/constansts"
 
 const initialState = {
   step: 0,
-  isGameReady: true,
+  isGameReady: false,
   cash: 4000000,
   settings: [],
-  cafeName: "null null",
+  cafeName: "Бариста, скажи 300",
 }
 
 // eslint-disable-next-line default-param-last
@@ -32,29 +34,15 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         cash: payload,
       }
-    case EXPENSE:
+    case CHANGE_CASH:
       return {
         ...state,
-        cash: state.cash - payload,
+        cash: state.cash + payload,
       }
     default:
       return state
   }
 }
-
-export const newExpense = payload => ({
-  type: EXPENSE,
-  payload,
-})
-
-export const startGame = payload => ({
-  type: TOGGLE_GAME,
-  payload,
-})
-export const nextStep = payload => ({
-  type: NEXT_STEP,
-  payload,
-})
 
 export const getCash = state => state.initializing.cash
 export const getGameStatus = state => state.initializing.isGameReady

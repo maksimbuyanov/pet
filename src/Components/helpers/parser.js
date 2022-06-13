@@ -1,11 +1,10 @@
-export default "тут должна быть ваша строка"
-
 /**
  * парсит стоимость в приятную глазу строку
  * @param number число
  * @param splitter разделитель каждого 3 и 4 символа
  * @returns {string}
  */
+// eslint-disable-next-line import/prefer-default-export
 export const moneySplitter = (number = 1000, splitter = " ") => {
   const arr = [...number.toString()].reverse()
   const result = []
@@ -18,3 +17,5 @@ export const moneySplitter = (number = 1000, splitter = " ") => {
   })
   return result.join("")
 }
+
+export const shuffle = array => array.sort(() => Math.random() - 0.5)

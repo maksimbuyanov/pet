@@ -11,10 +11,14 @@
   background-size: contain;
   grid-template-areas:
     "status status status status status"
-    "goose dialog dialog dialog actions"
-    " goose dialog dialog dialog actions";
-  grid-template-columns: 15% 1fr 20% 10% 30%;
+    "geese dialog dialog dialog actions"
+    " geese dialog dialog dialog actions";
+  grid-template-columns: 15% 1fr 20% 10% 20%;
   grid-template-rows: max-content 1fr 1fr;
+
+  &_pre {
+    grid-template-columns: 15% 1fr 20% 10% 15%;
+  }
 
   &__status {
     grid-area: status;
@@ -22,37 +26,41 @@
 
   &__dialog {
     width: 100%;
+    align-self: end;
     padding: $size;
     border-radius: $size;
     grid-area: dialog;
   }
 
+  &__first-round-block {
+    position: absolute;
+    z-index: 6;
+    width: 100vw;
+    height: 100vh;
+  }
+
   &__actions {
     grid-area: actions;
+
+    &_right {
+      grid-area: actions;
+    }
+
+    &_left {
+      grid-area: geese;
+    }
+
+    &_hidden {
+      display: none;
+    }
   }
 
-  &__goose {
-    grid-area: goose;
-  }
-}
-
-.actions {
-  display: flex;
-  flex-direction: column-reverse;
-  flex-wrap: wrap;
-  padding: 0 $size $size 0;
-  gap: $size;
-
-  &__item {
-    display: flex;
-    padding: $size;
-    background: $choice-card-bg-green;
-    border-radius: $size;
-    font-size: 25px;
+  &__geese {
+    grid-area: geese;
   }
 }
 
-.goose {
+.geese {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -61,13 +69,13 @@
 
   &__item {
     display: flex;
-    padding: $size;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: $size2 $size;
     background-color: black;
     border-radius: $size;
     color: white;
     font-size: $size2;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
   }
 }
