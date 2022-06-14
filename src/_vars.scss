@@ -57,7 +57,9 @@ $shadow-input: -5px 20px 8px #0000009c;
 $text-color-grey: #636363;
 $text-color-black: #000;
 $text-color-white: #fff;
-$nav-lineHeight: 30px;
+// noinspection Stylelint
+$nav-lineHeight: 15px;
+$title-size: 25px;
 
 // Fonts
 $font-roboto: roboto, sans-serif;

@@ -2,7 +2,7 @@
 
 .initial {
   position: relative;
-  width: 1920px;
+  width: 100vw;
   height: 100vh;
   padding: 20px;
   background: rgb(131 58 180);
@@ -18,26 +18,28 @@
   &__cash {
     position: absolute;
     top: 15%;
-    left: 10%;
+    left: 5%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding: $size;
     background-color: #9265d2;
     border-radius: $size;
     color: white;
-    font-size: $size3;
+    font-size: $title-size;
     font-weight: bolder;
     line-height: $size3;
 
     &::before {
-      width: $size3;
-      height: $size3;
+      width: $size2;
+      height: $size2;
       margin-right: $size;
       content: url("../../../src/image/coin.svg");
     }
   }
 
   &__dialog {
-    margin-top: 150px;
+    margin-top: 15px;
   }
 
   &__form {
@@ -49,7 +51,7 @@
 
   &__label {
     color: white;
-    font-size: $size2;
+    font-size: $title-size;
   }
 
   &__input {
@@ -57,7 +59,7 @@
     margin-right: $size;
     border-radius: $size;
     box-shadow: $shadow-prime;
-    font-size: $size2;
+    font-size: $title-size;
     line-height: $size2;
   }
 
@@ -67,7 +69,7 @@
     border-radius: $size;
     box-shadow: $shadow-prime;
     cursor: pointer;
-    font-size: $size2;
+    font-size: $title-size;
     line-height: $size2;
     transition: transform 0.3s ease, box-shadow  0.3s ease;
 

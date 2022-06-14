@@ -15,7 +15,7 @@
 
   &__item {
     position: relative;
-    padding: 30px 30px 30px 60px;
+    padding: $size $size $size $size2;
     margin-right: 5px;
     background-color: $nav-active-link;
     font-size: $nav-lineHeight;
@@ -30,9 +30,9 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
-      border-bottom: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
-      border-left: $size2 solid gold;
+      border-top: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-left: 25px solid gold;
       content: "";
     }
 
@@ -40,13 +40,13 @@
       position: absolute;
       z-index: 10;
       top: 0;
-      right: -$size2;
+      right: -25px;
       display: block;
       width: 0;
       height: 0;
-      border-top: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
-      border-bottom: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
-      border-left: $size2 solid $nav-active-link;
+      border-top: ($nav-lineHeight / 2) + $size  solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-left: 25px solid $nav-active-link;
       content: "";
       transition: 0.3s ease;
     }
@@ -65,7 +65,7 @@
       background-color: #568092;
 
       &::after {
-        border-left: $size2 solid #568092;
+        border-left: 25px solid #568092;
       }
     }
   }
@@ -73,13 +73,13 @@
   &::after {
     position: absolute;
     top: 0;
-    right: -$size2;
+    right: -25px;
     display: block;
     width: 0;
     height: 0;
-    border-top: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
-    border-bottom: ($nav-lineHeight / 2) + 30px solid transparent; // высота строки пополам + паддинг сверху
-    border-left: $size2 solid gold;
+    border-top: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+    border-bottom: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+    border-left: 25px solid gold;
     content: "";
     transition: 0.3s ease;
   }

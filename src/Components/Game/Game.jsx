@@ -13,6 +13,7 @@ import {
 } from "../../redux/game"
 import Action from "./Actions/Actions"
 import BlackGeese from "./BlackGeese/BlackGeese"
+import { shuffle } from "../helpers/parser"
 
 function Game() {
   const dispatch = useDispatch()
@@ -40,7 +41,9 @@ function Game() {
 
       {isGeeseArrived ? (
         <>
-          <div className="actions game__actions">{actionsCards}</div>
+          <div className="actions game__actions">
+            {shuffle(actionsCards).slice(0, 7)}
+          </div>
           <div className="geese game__geese">{geeseCards}</div>
         </>
       ) : (

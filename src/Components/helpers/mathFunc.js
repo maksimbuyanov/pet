@@ -25,5 +25,5 @@ export const generateNewCash = state => {
   const TAX = EBITDA - amortization > 0 ? (EBITDA - amortization) * 0.2 : 0
   const ЧИСТАЯ_ПРИБЫЛЬ = EBITDA - amortization - TAX
 
-  return ЧИСТАЯ_ПРИБЫЛЬ
+  return Math.round(ЧИСТАЯ_ПРИБЫЛЬ)
 }

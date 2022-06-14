@@ -64,13 +64,13 @@
   &__title {
     align-self: center;
     margin-bottom: $size;
-    font-size: $size2;
+    font-size: $title-size;
     font-weight: bolder;
-    line-height: $size2;
+    line-height: $title-size;
   }
 
   &__text {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 120%;
   }
 }

@@ -4,14 +4,19 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 15px;
+
+  &_large {
+    max-width: 40%;
+  }
 
   &__card {
     display: flex;
-    max-width: 33%;
+    max-width: 35%;
+    flex: 1 1 28%;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: $size2;
+    margin-right: $size;
     background: white;
     border-radius: $size;
     box-shadow: $shadow-prime;
@@ -39,8 +44,8 @@
   }
 
   &__item {
-    font-size: 20px;
-    line-height: 150%;
+    font-size: 16px;
+    line-height: 130%;
     text-transform: uppercase;
 
     &::before {
@@ -58,11 +63,11 @@
   }
 
   &__title {
-    padding: $size;
+    padding: 10px;
     border-bottom-left-radius: $size;
     border-bottom-right-radius: $size;
     color: white;
-    font-size: $size2;
+    font-size: 24px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
