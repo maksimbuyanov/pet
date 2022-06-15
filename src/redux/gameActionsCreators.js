@@ -3,6 +3,7 @@ import {
   FILTER_ACTIONS,
   SET_AMORTIZATION,
   SET_GOOSE_TEXT,
+  SET_TABLE_DATA,
   UPDATE_ACTION_COST,
   UPDATE_AVPAYMENT,
   UPDATE_AVPRICE,
@@ -82,5 +83,10 @@ export const setGooseText = payload => ({
 
 export const arrivedGoose = payload => ({
   type: ARRIVED_GEESE,
+  payload,
+})
+
+export const setTableData = payload => ({
+  type: SET_TABLE_DATA,
   payload,
 })

@@ -14,6 +14,7 @@ import {
 import Action from "./Actions/Actions"
 import BlackGeese from "./BlackGeese/BlackGeese"
 import { shuffle } from "../helpers/parser"
+import Table from "./Table/Table"
 
 function Game() {
   const dispatch = useDispatch()
@@ -32,6 +33,7 @@ function Game() {
   ))
 
   const isGeeseArrived = Boolean(geese.length)
+  const isActionsEmpty = !actions.length
 
   return (
     <div className={isGeeseArrived ? "game" : "game game_pre"}>
@@ -66,6 +68,7 @@ function Game() {
           </div>
         </>
       )}
+      {isActionsEmpty && <Table />}
     </div>
   )
 }

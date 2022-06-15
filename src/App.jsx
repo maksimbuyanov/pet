@@ -7,21 +7,7 @@ import { getGameStatus } from "./redux/initializing"
 
 function App() {
   const isGameReady = useSelector(getGameStatus)
-  return (
-    <div className="app">
-      {isGameReady ? <Game /> : <Start />}
-      {/* <BrowserRouter> */}
-      {/*   <Routes> */}
-      {/*     { */}
-      {/*        */}
-      {/*     } */}
-      {/*     <Route path="/" element={<Start />} /> */}
-
-      {/*     {isGameReady && <Route path="/game" element={<Game />} />} */}
-      {/*   </Routes> */}
-      {/* </BrowserRouter> */}
-    </div>
-  )
+  return <div className="app">{isGameReady ? <Game /> : <Start />}</div>
 }
 
 export default App

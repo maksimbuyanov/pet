@@ -10,6 +10,7 @@ import {
   FILTER_ACTIONS,
   SET_AMORTIZATION,
   SET_GOOSE_TEXT,
+  SET_TABLE_DATA,
   UPDATE_ACTION_COST,
   UPDATE_AVPAYMENT,
   UPDATE_AVPRICE,
@@ -32,6 +33,7 @@ import {
   filterActions,
   setAmortization,
   setGooseText,
+  setTableData,
   updateActionCost,
   updateAvPayment,
   updateAvPrice,
@@ -61,6 +63,7 @@ const initialState = {
   cost: 0,
   dialogText: startGameText,
   gooseText: null,
+  tableData: [],
 }
 
 // eslint-disable-next-line default-param-last
@@ -149,6 +152,12 @@ export default (state = initialState, { type, payload }) => {
         geese: [...state.geese, payload],
       }
 
+    case SET_TABLE_DATA:
+      return {
+        ...state,
+        tableData: [...state.tableData, payload],
+      }
+
     default:
       return state
   }
@@ -161,6 +170,7 @@ export const getActions = state => state.game.actions
 export const getGeese = state => state.game.geese
 export const getDialogText = state => state.game.dialogText
 export const getGooseText = state => state.game.gooseText
+export const getTableData = state => state.game.tableData
 
 export const applyAction = action => (dispatch, getState) => {
   const keys = Object.keys(action)
@@ -198,14 +208,16 @@ export const applyAction = action => (dispatch, getState) => {
     dispatch(updateActionCost(0))
   }
   const state = getState().game
-  const newCash = generateNewCash(state)
-  console.log(newCash)
+  const [newCash, tableData] = generateNewCash(state)
   dispatch(changeCash(newCash))
   dispatch(filterActions(action.title))
   dispatch(updateRound())
+  tableData.action = action.title
+  tableData.goose = ""
   const round = getState().game.round + 2
   if (round % 3 === 0) {
     const goose = shuffle(blackGeese).pop()
+    tableData.goose = goose.title
     Object.keys(goose).forEach(key => {
       switch (key) {
         case "text":
@@ -232,6 +244,7 @@ export const applyAction = action => (dispatch, getState) => {
       }
     })
   }
+  dispatch(setTableData(tableData))
 }
 
 export const applySettings = () => (dispatch, getState) => {
@@ -262,7 +275,7 @@ export const applySettings = () => (dispatch, getState) => {
   })
   dispatch(updateVisitors(3000))
   const state = getState().game
-  const newCash = generateNewCash(state)
+  const [newCash] = generateNewCash(state)
   dispatch(changeCash(newCash))
   dispatch(updateDialogText(secondStepText))
   dispatch(updateRound())
