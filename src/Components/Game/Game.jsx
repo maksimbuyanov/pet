@@ -68,7 +68,7 @@ function Game() {
           </div>
         </>
       )}
-      {isActionsEmpty && <Table />}
+      {/* {isActionsEmpty && <Table />} */}
     </div>
   )
 }

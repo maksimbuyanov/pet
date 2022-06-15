@@ -33,19 +33,10 @@ img {
 
 code {
   font-family:
-          source-code-pro,
-          Menlo,
-          Monaco,
-          Consolas,
-          "Courier New",
-          monospace;
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
+    monospace;
 }
-
-.icon {
-  display: inline-block;
-  box-sizing: border-box;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
