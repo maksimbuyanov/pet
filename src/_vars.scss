@@ -24,6 +24,28 @@ $dark-green: #238000;
 $blue: blue;
 $white: #fff;
 
+// Gradient
+// 1
+$col-1: rgb(131 58 180 / 100%);
+$col-2: rgb(253 29 29 / 100%);
+$col-3: rgb(253 50 35 / 100%);
+$col-4: rgb(252 176 69 / 100%);
+
+// 2
+$grad-blue-1: rgb(47 29 253 / 100%);
+$grad-blue-2: rgb(16 98 246 / 100%);
+$grad-blue-3: rgb(69 153 252 / 100%);
+
+// 3
+$grad-green-1: rgb(25 185 7 / 100%);
+$grad-green-2: rgb(19 199 43 / 100%);
+$grad-green-3: rgb(33 184 139 / 100%);
+
+// 4
+$grad-orange-1: rgb(250 177 59 / 100%);
+$grad-orange-2: rgb(238 125 12 / 100%);
+$grad-orange-3: rgb(255 252 0 / 100%);
+
 // Components
 $bg-header: #959595;
 $bg-white: $white;
@@ -40,10 +62,10 @@ $warning: $red;
 $prime: $smalt-blue;
 
 // Choice card
-$choice-card-bg-red: linear-gradient(45deg, rgb(131 58 180 / 100%) 0%, rgb(253 29 29 / 100%) 0%, rgb(253 50 35 / 100%) 46%, rgb(252 176 69 / 100%) 100%);
-$choice-card-bg-blue: linear-gradient(45deg, rgb(47 29 253 / 100%) 0%, rgb(16 98 246 / 100%) 46%, rgb(69 153 252 / 100%) 100%);
-$choice-card-bg-green: linear-gradient(45deg, rgb(25 185 7 / 100%) 0%, rgb(19 199 43 / 100%) 46%, rgb(33 184 139 / 100%) 100%)  ;
-$choice-card-bg-orange: linear-gradient(45deg, rgb(250 177 59 / 100%) 0%, rgb(238 125 12 / 100%) 63%, rgb(255 252 0 / 100%) 100%);
+$choice-card-bg-red: linear-gradient(45deg, $col-1 0%, $col-2 0%, $col-3 46%, $col-4 100%);
+$choice-card-bg-blue: linear-gradient(45deg, $grad-blue-1 0%, $grad-blue-2 46%, $grad-blue-3 100%);
+$choice-card-bg-green: linear-gradient(45deg, $grad-green-1 0%, $grad-green-1 46%, $grad-green-1 100%)  ;
+$choice-card-bg-orange: linear-gradient(45deg, $grad-orange-1  0%, $grad-orange-2 63%, $grad-orange-3  100%);
 $choice-card-shadow: 0 0 20px 9px #d7d7d7d1;
 
 // Shadow
@@ -57,36 +79,12 @@ $shadow-input: -5px 20px 8px #0000009c;
 $text-color-grey: #636363;
 $text-color-black: #000;
 $text-color-white: #fff;
-// noinspection Stylelint
-$nav-lineHeight: 15px;
+$nav-line-height: 15px;
 $title-size: 25px;
 
 // Fonts
 $font-roboto: roboto, sans-serif;
 $font-work: "Work Sans", sans-serif;
-
-// SVG
-
-$color-wall-front: #7e7d7f;
-$color-wall-front-light: #acacaf;
-$color-wall-front-dark: #4c4a4c;
-$color-wall-front-orange: #be5413;
-$color-wall-torets: #65696d;
-$color-wall-torets-dark: #313233;
-$color-wall-torets-light: #7d8287;
-$color-wall-torets-orange: #933a12;
-$color-wall-hover: #9ca1a9;
-$color-wall-hover-light: #b5b9c0;
-$color-wall-hower-dark: #575c65;
-$color-wall-hower-orange: #c56633;
-$color-wall-floor: #737983;
-$color-line: #c2474f;
-$color-window-yellow: #c5ad4f;
-$color-window-black: #000;
-$color-window-grey: #656465;
-$color-gzu: #5a5f67;
-$color-other-lightblue: #6e84c1;
-$color-other-blue: #445385;
 
 // panel and corrections and schemes
 $color-signal-yellow: #fefe00;
@@ -112,10 +110,6 @@ $z-index-auth: 50;
 $z-index-keyboard: 100;
 $z-index-toggle-keyboard: 110;
 $z-index-spinner: 500;
-
-// $font-bold: "PTSans-Bold", sans-serif;
-// $font-regular: "PTSans-Regular", sans-serif;
-// $font-italic: "PTSans-Italic", sans-serif;
 $border-grey: #e8e8e8;
 $bg-input-grey: #d0d0d0;
 $bg-input-light: #fff;

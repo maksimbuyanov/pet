@@ -18,8 +18,8 @@
     padding: $size $size $size $size2;
     margin-right: 5px;
     background-color: $nav-active-link;
-    font-size: $nav-lineHeight;
-    line-height: $nav-lineHeight;
+    font-size: $nav-line-height;
+    line-height: $nav-line-height;
     text-decoration: none;
     transition: 0.3s ease;
 
@@ -30,8 +30,8 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
-      border-bottom: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-top: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
       border-left: 25px solid gold;
       content: "";
     }
@@ -44,8 +44,8 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: ($nav-lineHeight / 2) + $size  solid transparent; // высота строки пополам + паддинг сверху
-      border-bottom: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-top: ($nav-line-height / 2) + $size  solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
       border-left: 25px solid $nav-active-link;
       content: "";
       transition: 0.3s ease;
@@ -77,8 +77,8 @@
     display: block;
     width: 0;
     height: 0;
-    border-top: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
-    border-bottom: ($nav-lineHeight / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+    border-top: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+    border-bottom: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
     border-left: 25px solid gold;
     content: "";
     transition: 0.3s ease;

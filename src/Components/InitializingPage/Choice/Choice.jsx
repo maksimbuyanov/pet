@@ -2,6 +2,7 @@ import React from "react"
 import "./Choice.scss"
 import { useDispatch } from "react-redux"
 import { nextStep } from "../../../redux/initializingActionsCreators"
+import { shuffle } from "../../helpers/parser"
 
 function Choice({ positionClass, cardsArr }) {
   const dispatch = useDispatch()
@@ -9,10 +10,12 @@ function Choice({ positionClass, cardsArr }) {
   if (positionClass) {
     className.push(positionClass)
   }
+  const gradientsName = shuffle(["red", "blue", "green", "orange"])
   const cards = cardsArr.map(card => {
-    const { gradient, cost, title, listItems } = card
+    const { cost, title, listItems } = card
     const isArray = Array.isArray(listItems)
     const titleClass = ["choice__title"]
+    const gradient = gradientsName.pop()
     if (gradient) {
       titleClass.push(`choice__title_${gradient}`)
     }
