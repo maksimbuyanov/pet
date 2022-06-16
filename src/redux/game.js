@@ -7,10 +7,15 @@ import {
 import { generateNewCash } from "../Components/helpers/mathFunc"
 import {
   ARRIVED_GEESE,
+  BIG_IN_RED_LINE,
+  ECONOMY,
   FILTER_ACTIONS,
   SET_AMORTIZATION,
   SET_GOOSE_TEXT,
   SET_TABLE_DATA,
+  SMALL_DISTRICT,
+  SMALL_IN_RED_LINE,
+  STANDART,
   UPDATE_ACTION_COST,
   UPDATE_AVPAYMENT,
   UPDATE_AVPRICE,
@@ -21,12 +26,7 @@ import {
   UPDATE_ROUND,
   UPDATE_SALARY,
   UPDATE_VISITORS,
-  БОЛ_КР_ЛИНИЯ,
-  ВИП,
-  МАЛ_КР_ЛИНИЯ,
-  МАЛ_СП_РАЙОН,
-  СТАНДАРТ,
-  ЭКОНОМ,
+  VIP,
 } from "../Components/helpers/constansts"
 import {
   arrivedGoose,
@@ -46,7 +46,7 @@ import {
   updateVisitors,
 } from "./gameActionsCreators"
 import { changeCash } from "./initializingActionsCreators"
-import { shuffle } from "../Components/helpers/parser"
+import { shuffle, toFix2 } from "../Components/helpers/parser"
 
 const initialState = {
   visitors: "",
@@ -96,7 +96,7 @@ export default (state = initialState, { type, payload }) => {
     case UPDATE_CR:
       return {
         ...state,
-        cr: (state.cr * 10 + payload * 10) / 10,
+        cr: toFix2(state.cr + payload),
       }
 
     case UPDATE_AVPRICE:
@@ -120,7 +120,7 @@ export default (state = initialState, { type, payload }) => {
     case UPDATE_COMMISSIONS:
       return {
         ...state,
-        commissions: state.commissions + payload,
+        commissions: toFix2(state.commissions + payload),
       }
 
     case UPDATE_SALARY:
@@ -217,7 +217,7 @@ export const applyAction = action => (dispatch, getState) => {
   const round = getState().game.round + 2
   if (round % 3 === 0) {
     const goose = shuffle(blackGeese).pop()
-    tableData.goose = goose.title
+
     Object.keys(goose).forEach(key => {
       switch (key) {
         case "text":
@@ -225,18 +225,25 @@ export const applyAction = action => (dispatch, getState) => {
           break
         case "title":
           dispatch(arrivedGoose(goose[key]))
+          tableData.goose = goose.title
           break
         case "visitors":
           dispatch(updateVisitors(goose[key]))
+          tableData.visitors += goose.visitors
           break
         case "cr":
           dispatch(updateCR(goose[key]))
+          tableData.cr = toFix2(goose.cr + tableData.cr)
           break
         case "avPrice":
           dispatch(updateAvPrice(goose[key]))
+          tableData.avPrice += goose.avPrice
           break
         case "commissions":
           dispatch(updateCommissions(goose[key]))
+          tableData.commissions = toFix2(
+            goose.commissions + tableData.commissions
+          )
           break
 
         default:
@@ -251,22 +258,22 @@ export const applySettings = () => (dispatch, getState) => {
   const { settings } = getState().initializing
   settings.forEach(item => {
     switch (item) {
-      case МАЛ_СП_РАЙОН:
+      case SMALL_DISTRICT:
         dispatch(updateRent(150000))
         break
-      case МАЛ_КР_ЛИНИЯ:
+      case SMALL_IN_RED_LINE:
         dispatch(updateRent(300000))
         break
-      case БОЛ_КР_ЛИНИЯ:
+      case BIG_IN_RED_LINE:
         dispatch(updateRent(450000))
         break
-      case ЭКОНОМ:
+      case ECONOMY:
         dispatch(setAmortization(40000))
         break
-      case СТАНДАРТ:
+      case STANDART:
         dispatch(setAmortization(50000))
         break
-      case ВИП:
+      case VIP:
         dispatch(setAmortization(65000))
         break
       default:

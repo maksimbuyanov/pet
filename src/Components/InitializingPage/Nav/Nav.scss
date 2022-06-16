@@ -30,7 +30,7 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-top: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + падинг сверху
       border-bottom: ($nav-line-height / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
       border-left: 25px solid gold;
       content: "";
@@ -62,10 +62,10 @@
     }
 
     &_active {
-      background-color: #568092;
+      background-color: #00b3ff;
 
       &::after {
-        border-left: 25px solid #568092;
+        border-left: 25px solid #00b3ff;
       }
     }
   }

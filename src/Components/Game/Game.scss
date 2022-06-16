@@ -60,23 +60,3 @@
     grid-area: geese;
   }
 }
-
-.geese {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 0 $size $size;
-  gap: $size;
-
-  &__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $size2 $size;
-    background-color: black;
-    border-radius: $size;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-  }
-}

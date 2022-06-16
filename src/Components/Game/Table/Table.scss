@@ -1,0 +1,38 @@
+@import "src/vars";
+
+.table {
+  margin-top: $size;
+  background-color: white;
+  border-radius: $size;
+  border-spacing: 0;
+
+  &__headerLine {
+
+  }
+
+  &__headerItem {
+    padding: 2px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  &__row {
+    &:nth-child(odd) {
+      background-color: #2cc3e4;
+    }
+  }
+
+  &__cell {
+    padding: 2px 6px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}

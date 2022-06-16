@@ -19,3 +19,6 @@ export const moneySplitter = (number = 1000, splitter = " ") => {
 }
 
 export const shuffle = array => array.sort(() => Math.random() - 0.5)
+
+export const toFix2 = expression => +expression.toFixed(2)
+export const toFix = expression => +expression.toFixed(0)

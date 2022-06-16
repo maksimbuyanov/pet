@@ -3,6 +3,7 @@ import React from "react"
 import { useTable } from "react-table"
 import { useSelector } from "react-redux"
 import { getTableData } from "../../../redux/game"
+import "./Table.scss"
 
 const headerArr = [
   "Ход",
@@ -10,7 +11,7 @@ const headerArr = [
   "Внешнее событие",
   "Число посетителей",
   "Конверсия в покупку",
-  "Число платящих",
+  // "Число платящих",
   "Средний чек",
   "маржа",
   "Число покупок на человека",
@@ -19,9 +20,9 @@ const headerArr = [
   "Стоимость привлечения 1 посетителя",
   "Доход на 1 привлеченного",
   "Прибыль с потока",
-  "REVENUE",
-  "Доход с потока",
-  "COGS после продажи",
+  // "REVENUE",
+  // "Доход с потока",
+  // "COGS после продажи",
   "ЗП персонала",
   "Стоимость аренды",
   "Цена действия",
@@ -37,7 +38,7 @@ const structure = [
   "goose",
   "visitors",
   "cr",
-  "number_of_paying",
+  // "number_of_paying",
   "avPrice",
   "commissions",
   "avPayment",
@@ -46,9 +47,9 @@ const structure = [
   "cost_of_attraction",
   "income_per_attracted",
   "profit_from_stream",
-  "revenue",
-  "income_from_stream",
-  "COGS_after_sales",
+  // "revenue",
+  // "income_from_stream",
+  // "COGS_after_sales",
   "salary",
   "rent",
   "cost",
@@ -86,7 +87,7 @@ function Table() {
     })
 
   return (
-    <table {...getTableProps()} className="table__main">
+    <table {...getTableProps()} className="game__table table">
       <thead>
         {headerGroups.map(headerGroup => (
           <tr

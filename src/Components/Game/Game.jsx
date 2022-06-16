@@ -38,17 +38,19 @@ function Game() {
   return (
     <div className={isGeeseArrived ? "game" : "game game_pre"}>
       <Status />
-      <Dialog text={text} positionClass="game__dialog" />
+      {!isActionsEmpty && <Dialog text={text} positionClass="game__dialog" />}
       {firstRound && <FirstRound />}
 
-      {isGeeseArrived ? (
+      {isGeeseArrived && !isActionsEmpty && (
         <>
           <div className="actions game__actions">
             {shuffle(actionsCards).slice(0, 7)}
           </div>
           <div className="geese game__geese">{geeseCards}</div>
         </>
-      ) : (
+      )}
+
+      {!isGeeseArrived && (
         <>
           <div
             className={
@@ -68,7 +70,8 @@ function Game() {
           </div>
         </>
       )}
-      {/* {isActionsEmpty && <Table />} */}
+
+      {isActionsEmpty && <Table />}
     </div>
   )
 }
