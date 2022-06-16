@@ -49,3 +49,18 @@ export const TOGGLE_GAME = "TOGGLE_GAME"
 export const SET_CASH = "SET_CASH"
 export const CHANGE_CASH = "CHANGE_CASH" // расходы
 export const SET_GOOSE_TEXT = "SET_GOOSE_TEXT"
+
+/** Константы для действий пользователя */
+
+export const EXPEND_ASSORTMENT = "Расширить ассортимент"
+export const INSERT_DELIVERY = "Подключить доставку"
+export const EXPEND_STAFF = "Увеличить штат сотрудников"
+export const ORDER_OFF_LINE_PROMO = "Заказать рекламу off-line"
+export const ORDER_ON_LINE_PROMO = "Заказать рекламу on-line"
+export const LAUNCH_LOYALTY_PROGRAM = "Запустить программу лояльности"
+export const REFRESH_MENU = "Обновить меню"
+export const DECORATE_HALL = "Украсить зал к новому году"
+export const UPGRADE_RULES_OF_DRINK = "Улучшить правила подачи напитков"
+export const CREATE_COMBO_MENU = "Разработать комбо предложение кофе"
+export const CREATE_BRAND = "Разработать брендинг кафе"
+export const DO_NOTHING = "Ничего не подключать"

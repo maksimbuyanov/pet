@@ -8,18 +8,16 @@ import {
   applySettings,
   getActions,
   getDialogText,
-  getGeese,
+  getGeeseLength,
   isFirstRound,
 } from "../../redux/game"
 import Action from "./Actions/Actions"
-import BlackGeese from "./BlackGeese/BlackGeese"
-import { shuffle } from "../helpers/parser"
 import Table from "./Table/Table"
+import BlackGeese from "./BlackGeese/BlackGeese"
 
 function Game() {
   const dispatch = useDispatch()
   const actions = useSelector(getActions)
-  const geese = useSelector(getGeese)
   const text = useSelector(getDialogText)
   const firstRound = useSelector(isFirstRound)
   const actionsCards = actions.map(action => {
@@ -28,11 +26,8 @@ function Game() {
     }
     return <Action onClick={onClick} action={action} key={action.title} />
   })
-  const geeseCards = geese.map(geeseItem => (
-    <BlackGeese geeseItem={geeseItem} key={geeseItem} />
-  ))
 
-  const isGeeseArrived = Boolean(geese.length)
+  const isGeeseArrived = useSelector(getGeeseLength)
   const isActionsEmpty = !actions.length
 
   return (
@@ -44,9 +39,9 @@ function Game() {
       {isGeeseArrived && !isActionsEmpty && (
         <>
           <div className="actions game__actions">
-            {shuffle(actionsCards).slice(0, 7)}
+            {actionsCards.slice(0, 7)}
           </div>
-          <div className="geese game__geese">{geeseCards}</div>
+          <BlackGeese />
         </>
       )}
 

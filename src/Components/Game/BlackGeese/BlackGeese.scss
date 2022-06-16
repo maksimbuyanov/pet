@@ -8,6 +8,7 @@
   gap: $size;
 
   &__item {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,5 +18,17 @@
     color: white;
     font-size: 20px;
     text-align: center;
+
+    &_lose {
+      &::after {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        display: inline-block;
+        width: $size;
+        height: $size;
+        content: url("src/image/checked.svg");
+      }
+    }
   }
 }

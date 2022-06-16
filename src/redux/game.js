@@ -51,7 +51,7 @@ import { shuffle, toFix2 } from "../Components/helpers/parser"
 const initialState = {
   visitors: "",
   round: 1,
-  actions: userActions,
+  actions: shuffle(userActions),
   geese: [],
   cr: 0.7,
   avPayment: 3,
@@ -171,10 +171,10 @@ export const getGeese = state => state.game.geese
 export const getDialogText = state => state.game.dialogText
 export const getGooseText = state => state.game.gooseText
 export const getTableData = state => state.game.tableData
+export const getGeeseLength = state => state.game.geese.length
 
 export const applyAction = action => (dispatch, getState) => {
-  const keys = Object.keys(action)
-  keys.forEach(key => {
+  Object.keys(action).forEach(key => {
     switch (key) {
       case "visitors":
         dispatch(updateVisitors(action[key]))
@@ -224,7 +224,7 @@ export const applyAction = action => (dispatch, getState) => {
           dispatch(setGooseText(goose[key]))
           break
         case "title":
-          dispatch(arrivedGoose(goose[key]))
+          dispatch(arrivedGoose({ title: goose.title, enemy: goose.enemy }))
           tableData.goose = goose.title
           break
         case "visitors":
