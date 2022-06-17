@@ -49,9 +49,18 @@ export const nav_steps = [
   "Шаг 7",
   "Шаг 8",
   "Шаг 9",
+  "Шаг 10",
 ]
 
 export const setup = [
+  {
+    dialog: {
+      positionClass: "initial__dialog",
+      text: `Глубокая начальная речь!`,
+      title: `Привет!`,
+    },
+    choice: null,
+  },
   {
     dialog: {
       positionClass: "initial__dialog",
@@ -149,20 +158,20 @@ export const setup = [
       positionClass: "initial__choice",
       cardsArr: [
         {
-          cost: null,
+          cost: 0,
           title: ALIEN,
           listItems: `Купи уже работающую кофейню и сэкономь время.
           Однако обрати внимание на стоимость, придётся заплатить за труды предыдущего владельца.`,
         },
         {
-          cost: null,
+          cost: 0,
           title: FRANCHISE,
           listItems: `Используй уже проверенную модель работы и бренд.
           Это повысит узнаваемость кафе и позволит сократить расходы на маркетинг.
           Однако придётся платить комиссию с каждого проданного кофе.`,
         },
         {
-          cost: null,
+          cost: 0,
           title: FROM_NOTHING,
           listItems: `Попробуй все организовать по-своему. Это потребует времени, но позволит сэкономить на расходах.`,
         },
@@ -295,7 +304,7 @@ export const setup = [
       positionClass: "initial__choice",
       cardsArr: [
         {
-          cost: null,
+          cost: 0,
           title: SEARCH_WITH_FRIENDSHELP,
           listItems: `У тебя есть много знакомых в сфере общественных заведений,
           у них есть большая база необходимых тебе сотрудников. Такое решение
@@ -303,7 +312,7 @@ export const setup = [
           ведь отбирать кандидатов и назначать им встречи тебе придётся самому.`,
         },
         {
-          cost: null,
+          cost: 0,
           title: SEARCHING_CANDIDATE,
           listItems: `Воспользуйся сервисом "Найти кадр" ! Ты сможешь быстро
           найти все необходимые компетенции на проверенной площадке.`,
@@ -323,7 +332,6 @@ export const setup = [
       cardsArr: [
         {
           cost: 0,
-
           title: WHOLESALE_BASE,
           listItems: `Хочешь сделать хорошо, сделай сам. Недалеко от города
           есть хорошие оптовые базы, но ездить туда очень долго. Подумай
@@ -331,7 +339,6 @@ export const setup = [
         },
         {
           cost: 0,
-
           title: DARKSTORE,
           listItems: `Можно обратиться на маркетплейс и делать заказ в режиме
           онлайн, не нужно тратить время на дорогу и всегда есть большой выбор.
@@ -339,7 +346,6 @@ export const setup = [
         },
         {
           cost: 8000,
-
           title: PERSONAL_DISTRIBUTOR,
           listItems: `Можно найти своего "Личного" поставщика. Обрати внимание
           сколько и каких затрат потребуется для поиска своего человека.`,
@@ -358,14 +364,14 @@ export const setup = [
       positionClass: "initial__choice",
       cardsArr: [
         {
-          cost: null,
+          cost: 0,
           title: PERMISSION_1,
           listItems: `Тебе предстоит получить разрешение Р.Т.К. Ты работаешь в
           сфере общественного питания и у тебя должны соблюдать все нормы и
           правила по изготовлению, хранению, и реализации питания`,
         },
         {
-          cost: null,
+          cost: 0,
           title: PERMISSION_2,
           listItems: `Получить разрешение также необходимо, чтобы быть
           уверенным к готовности к ситуациям связанным с пожарами, газовым и
