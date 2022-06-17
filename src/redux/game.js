@@ -171,7 +171,7 @@ export const getGeese = state => state.game.geese
 export const getDialogText = state => state.game.dialogText
 export const getGooseText = state => state.game.gooseText
 export const getTableData = state => state.game.tableData
-export const getGeeseLength = state => state.game.geese.length
+export const getGeeseLength = state => state.game.geese.length > 0
 
 export const applyAction = action => (dispatch, getState) => {
   Object.keys(action).forEach(key => {
@@ -223,10 +223,18 @@ export const applyAction = action => (dispatch, getState) => {
         case "text":
           dispatch(setGooseText(goose[key]))
           break
-        case "title":
-          dispatch(arrivedGoose({ title: goose.title, enemy: goose.enemy }))
+        case "title": {
+          const { title, enemy, personalClass } = goose
+          dispatch(
+            arrivedGoose({
+              title,
+              enemy,
+              personalClass,
+            })
+          )
           tableData.goose = goose.title
           break
+        }
         case "visitors":
           dispatch(updateVisitors(goose[key]))
           tableData.visitors += goose.visitors

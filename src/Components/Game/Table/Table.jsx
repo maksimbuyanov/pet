@@ -62,7 +62,6 @@ const structure = [
 
 function Table() {
   const tableData = useSelector(getTableData)
-  debugger
   const columns = React.useMemo(() => {
     return headerArr.map((headerName, headerIndex) => ({
       Header: headerName,
@@ -79,7 +78,6 @@ function Table() {
       return result
     })
   }, [tableData])
-  debugger
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,

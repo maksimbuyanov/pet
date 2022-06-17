@@ -30,17 +30,23 @@ function Game() {
   const isGeeseArrived = useSelector(getGeeseLength)
   const isActionsEmpty = !actions.length
 
+  const gameClass = ["game"]
+  if (!isGeeseArrived) {
+    gameClass.push("game_pre")
+  }
+  if (isActionsEmpty) {
+    gameClass.push("game_end")
+  }
+
   return (
-    <div className={isGeeseArrived ? "game" : "game game_pre"}>
+    <div className={gameClass.join(" ")}>
       <Status />
       {!isActionsEmpty && <Dialog text={text} positionClass="game__dialog" />}
       {firstRound && <FirstRound />}
 
       {isGeeseArrived && !isActionsEmpty && (
         <>
-          <div className="actions game__actions">
-            {actionsCards.slice(0, 7)}
-          </div>
+          <div className="actions game__actions">{actionsCards}</div>
           <BlackGeese />
         </>
       )}

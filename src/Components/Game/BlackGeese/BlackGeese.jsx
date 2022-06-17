@@ -7,13 +7,14 @@ function BlackGeese() {
   const geese = useSelector(getGeese)
   const actions = useSelector(getActions).map(action => action.title)
   const geeseCards = geese.map(geeseItem => {
-    const isGooseLose = !actions.include(geeseItem.enemy)
+    const isGooseLose = !actions.includes(geeseItem.enemy)
+    const gooseClass = ["geese__item", `geese__item_${geeseItem.personalClass}`]
+    if (isGooseLose) {
+      gooseClass.push(`geese__item_lose`)
+    }
 
     return (
-      <div
-        className={isGooseLose ? "geese__item geese_item_lose" : "geese__item"}
-        key={geeseItem.title}
-      >
+      <div className={gooseClass.join(" ")} key={geeseItem.title}>
         {geeseItem.title}
       </div>
     )

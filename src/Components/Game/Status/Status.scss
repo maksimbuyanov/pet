@@ -10,7 +10,7 @@
     background-color: #fff;
     border-radius: $size;
     color: black;
-    font-size: $title-size;
+    font-size: 22px;
     font-weight: bold;
     line-height: 120%;
     text-align: center;
@@ -22,7 +22,7 @@
     align-items: center;
     align-self: center;
     justify-content: center;
-    padding: $size $size4;
+    padding: 10px $size4;
     background-color: #fff;
     border-radius: $size;
     color: black;
@@ -35,12 +35,12 @@
     display: flex;
     align-items: stretch;
     margin-right: $size2;
-    font-size: $size2;
+    font-size: 22px;
 
     &::before {
       display: inline-block;
-      width: $size2;
-      height: $size2;
+      width: 20px;
+      height: 20px;
       margin-right: $size;
       content: url("../../../image/clock_coin.svg");
     }
@@ -50,12 +50,12 @@
     display: flex;
     align-items: center;
     margin-right: $size2;
-    font-size: $size2;
+    font-size: 22px;
 
     &::before {
       display: inline-block;
-      width: $size3;
-      height: $size3;
+      width: $size2;
+      height: $size2;
       margin-right: $size;
       content: url("../../../image/coin.svg");
     }
@@ -64,12 +64,12 @@
   &__clients {
     display: flex;
     align-items: center;
-    font-size: $size2;
+    font-size: 22px;
 
     &::before {
       display: inline-block;
-      width: $size3;
-      height: $size3;
+      width: $size2;
+      height: $size2;
       margin-right: $size;
       content: url("../../../image/clients_1_mono.svg");
     }

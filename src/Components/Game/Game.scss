@@ -11,7 +11,7 @@
   background-repeat: repeat;
   background-size: contain;
   grid-template-areas:
-    "status status status status status"
+    "geese status status status actions"
     "geese dialog dialog dialog actions"
     " geese dialog dialog dialog actions";
   grid-template-columns: 15% 1fr 20% 10% 20%;
@@ -19,6 +19,14 @@
 
   &_pre {
     grid-template-columns: 15% 1fr 20% 10% 15%;
+  }
+
+  &_end {
+    grid-template-areas:
+      "status"
+      "table";
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
   }
 
   &__status {

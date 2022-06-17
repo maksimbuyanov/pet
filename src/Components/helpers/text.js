@@ -512,6 +512,7 @@ export const userActions = [
 
 export const blackGeese = [
   {
+    personalClass: `covid`,
     title: "Пандемия",
     visitors: -4000,
     cr: -0.05,
@@ -521,6 +522,7 @@ export const blackGeese = [
     enemy: INSERT_DELIVERY,
   },
   {
+    personalClass: `university`,
     title: "Открылся рядом университет",
     visitors: 2000,
     avPrice: -20,
@@ -529,6 +531,7 @@ export const blackGeese = [
     enemy: EXPEND_STAFF,
   },
   {
+    personalClass: `opponent`,
     title: "Открылся рядом конкурент",
     visitors: -1000,
     cr: -0.15,
@@ -538,20 +541,20 @@ export const blackGeese = [
     enemy: EXPEND_ASSORTMENT,
   },
   {
+    personalClass: `rate-fall`,
     title: "Девальвация рубля в 2 раза",
     visitors: -1500,
     cr: -0.05,
     commissions: -0.05,
     text: `К сожалению геополитические риски не отступают и рубль ослаб. Нужно
     обдумать как снизить зависимость от импортных заказов.`,
-    enemy: ORDER_ON_LINE_PROMO,
   },
   {
+    personalClass: `brasil`,
     title: "Случился неурожай кофе в Бразилии",
     avPrice: 50,
     commissions: -0.1,
     text: `И такое случается. В Бразилии сильнейшая засуха и цены на кофе взлетели!
     Твоя маржа упала, нужно срочно исправлять положение.`,
-    enemy: DECORATE_HALL,
   },
 ]

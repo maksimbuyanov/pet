@@ -19,15 +19,41 @@
     font-size: 20px;
     text-align: center;
 
+    &_covid {
+      &::after {
+        background-image: url("../../../../src/image/covid.svg");
+        content: "";
+        opacity: 0;
+      }
+    }
+
+    &_university {
+      &::after {
+        background-image: url("../../../../src/image/university.svg");
+        content: "";
+        opacity: 0;
+      }
+    }
+
+    &_opponent {
+      &::after {
+        background-image: url("../../../../src/image/opponent.svg");
+        content: "";
+        opacity: 0;
+      }
+    }
+
     &_lose {
       &::after {
         position: absolute;
         top: 5px;
         right: 5px;
         display: inline-block;
-        width: $size;
-        height: $size;
-        content: url("src/image/checked.svg");
+        width: $size3;
+        height: $size3;
+        background-size: contain;
+        opacity: 1;
+        transform: translate(20px, -20px);
       }
     }
   }
