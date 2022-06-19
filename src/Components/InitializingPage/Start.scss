@@ -52,16 +52,16 @@
 
   &__label {
     display: flex;
-    align-items: center;
     width: 70%;
+    align-items: center;
     margin-bottom: $size;
   }
 
   &__text {
+    margin-right: $size;
     color: white;
     font-size: $title-size;
     white-space: nowrap;
-    margin-right: $size;
   }
 
   &__input {
@@ -84,6 +84,11 @@
     line-height: $size2;
     transition: transform 0.3s ease, box-shadow  0.3s ease;
 
+    &_end {
+      display: block;
+      margin: 0 auto;
+    }
+
     &:hover {
       box-shadow: $shadow-input;
       transform: translateY(-10px);
@@ -93,6 +98,27 @@
       box-shadow: $shadow-input;
       outline: none;
       transform: translateY(-10px);
+    }
+  }
+
+  &__settings-list {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    padding: 10px 0;
+    margin: $size auto;
+    background-color: white;
+    border-radius: $size;
+
+  }
+
+  &__settings-item {
+    padding: $size / 3;
+    border-right: 1px solid grey;
+    font-size: 14px;
+
+    &:last-child {
+      border-right: unset;
     }
   }
 }

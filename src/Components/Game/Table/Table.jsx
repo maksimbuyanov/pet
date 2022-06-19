@@ -4,79 +4,75 @@ import { useTable } from "react-table"
 import { useSelector } from "react-redux"
 import { getTableData } from "../../../redux/game"
 import "./Table.scss"
+import { avValue, moneySplitter, toFix } from "../../helpers/parser"
 
 const headerArr = [
-  "Ход",
-  "Выбранное действие",
-  "Внешнее событие",
-  "Число посетителей",
-  "Конверсия в покупку",
-  // "Число платящих",
-  "Средний чек",
-  "маржа",
-  "Число покупок на человека",
-  "Доход на 1 платящего",
-  "расходы на привлечение",
-  "Стоимость привлечения 1 посетителя",
-  "Доход на 1 привлеченного",
-  "Прибыль с потока",
-  // "REVENUE",
-  // "Доход с потока",
-  // "COGS после продажи",
-  "ЗП персонала",
-  "Стоимость аренды",
-  "Цена действия",
-  "FIX COSTS",
-  "EBITDA",
-  "Амортизация оборудование",
-  "Налог",
-  "Чистая прибыль",
+  { Header: "Ход", accessor: "round" },
+  { Header: "Выбранное действие", accessor: "action" },
+  { Header: "Цена действия", accessor: "cost" },
+  { Header: "Внешнее событие", accessor: "goose" },
+  { Header: "Число посетителей", accessor: "visitors" },
+  { Header: "Средний чек", accessor: "avPrice" },
+  { Header: "Число покупок на человека", accessor: "avPayment" },
+  { Header: "Маржа", accessor: "commissions" },
+  { Header: "Доход на 1 платящего", accessor: "income_per_payer" },
+  { Header: "Прибыль с потока", accessor: "profit_from_stream" },
+  { Header: "Выручка", accessor: "revenue" },
+  { Header: "Налог", accessor: "tax" },
+  { Header: "Чистая прибыль", accessor: "net_profit" },
+  { Header: "На счету", accessor: "cash" },
 ]
-const structure = [
-  "round",
-  "action",
-  "goose",
-  "visitors",
-  "cr",
-  // "number_of_paying",
-  "avPrice",
-  "commissions",
-  "avPayment",
-  "income_per_payer",
-  "acqcosts",
-  "cost_of_attraction",
-  "income_per_attracted",
-  "profit_from_stream",
-  // "revenue",
-  // "income_from_stream",
-  // "COGS_after_sales",
-  "salary",
-  "rent",
-  "cost",
-  "FIX_COSTS",
-  "EBITDA",
-  "amortization",
-  "tax",
-  "net_profit",
-]
+
+const defaultTableBottomline = {
+  visitors: 0,
+  avPrice_arr: [],
+  avPayment_arr: [],
+  cost_arr: [],
+  commissions_arr: [],
+  income_per_payer_arr: [],
+  profit_from_stream_arr: [],
+  revenue: 0,
+  tax: 0,
+  round: "",
+  net_profit: 0,
+  action: "",
+  goose: "",
+  cash: 0,
+}
 
 function Table() {
   const tableData = useSelector(getTableData)
   const columns = React.useMemo(() => {
-    return headerArr.map((headerName, headerIndex) => ({
-      Header: headerName,
-      accessor: `col${headerIndex + 1}`,
+    return headerArr.map(col => ({
+      Header: col.Header,
+      accessor: col.accessor,
     }))
   }, [])
   const data = React.useMemo(() => {
-    return tableData.map(line => {
-      const result = {}
-      structure.forEach((colName, colIndex) => {
-        const key = `col${colIndex + 1}`
-        result[key] = line[colName]
-      })
-      return result
-    })
+    const result = []
+    const bottomLine = tableData.reduce((acc, item) => {
+      acc.visitors += item.visitors
+      acc.revenue += item.revenue
+      acc.tax += item.tax
+      acc.net_profit += item.net_profit
+      acc.cost_arr.push(item.cost)
+      acc.avPrice_arr.push(item.avPrice)
+      acc.avPayment_arr.push(item.avPayment)
+      acc.commissions_arr.push(item.commissions)
+      acc.income_per_payer_arr.push(item.income_per_payer)
+      acc.profit_from_stream_arr.push(item.profit_from_stream)
+      acc.cash = item.cash
+      result.push(item)
+      return acc
+    }, defaultTableBottomline)
+    bottomLine.cost = avValue(bottomLine.cost_arr)
+    bottomLine.avPrice = avValue(bottomLine.avPrice_arr)
+    bottomLine.avPayment = avValue(bottomLine.avPayment_arr)
+    bottomLine.commissions = avValue(bottomLine.commissions_arr)
+    bottomLine.income_per_payer = avValue(bottomLine.income_per_payer_arr)
+    bottomLine.profit_from_stream = avValue(bottomLine.profit_from_stream_arr)
+    result.push(bottomLine)
+    return result
   }, [tableData])
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
@@ -97,7 +93,7 @@ function Table() {
               <th
                 key={column.id}
                 {...column.getHeaderProps()}
-                className="table__headerItem"
+                className={`table__headerItem table__headerItem_${column.id}`}
               >
                 {column.render("Header")}
               </th>
@@ -115,6 +111,29 @@ function Table() {
               className="table__row"
             >
               {row.cells.map(cell => {
+                debugger
+                if (cell.column.id === "commissions") {
+                  return (
+                    <td
+                      key={cell.id}
+                      {...cell.getCellProps()}
+                      className="table__cell"
+                    >
+                      {`${toFix(cell.value * 100)}%`}
+                    </td>
+                  )
+                }
+                if (typeof cell.value === "number") {
+                  return (
+                    <td
+                      key={cell.id}
+                      {...cell.getCellProps()}
+                      className="table__cell"
+                    >
+                      {moneySplitter(cell.value)}
+                    </td>
+                  )
+                }
                 return (
                   <td
                     key={cell.id}

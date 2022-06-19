@@ -2,6 +2,7 @@ import {
   CHANGE_CASH,
   NEXT_STEP,
   SET_CASH,
+  SET_NAME,
   TOGGLE_GAME,
 } from "../Components/helpers/constansts"
 
@@ -20,5 +21,9 @@ export const nextStep = payload => ({
 })
 export const setCash = payload => ({
   type: SET_CASH,
+  payload,
+})
+export const setName = payload => ({
+  type: SET_NAME,
   payload,
 })

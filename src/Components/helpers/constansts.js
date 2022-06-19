@@ -49,6 +49,7 @@ export const TOGGLE_GAME = "TOGGLE_GAME"
 export const SET_CASH = "SET_CASH"
 export const CHANGE_CASH = "CHANGE_CASH" // расходы
 export const SET_GOOSE_TEXT = "SET_GOOSE_TEXT"
+export const SET_NAME = "SET_NAME"
 
 /** Константы для действий пользователя */
 

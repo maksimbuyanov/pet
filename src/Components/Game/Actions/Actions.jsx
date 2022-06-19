@@ -16,11 +16,11 @@ function Action({ onClick, action }) {
       animation="fade"
       duration={300}
     >
-      <div
+      <button
         className="actions__item"
         onClick={onClick}
         key={action.title}
-        role="button"
+        type="button"
         tabIndex="0"
         onKeyDown={e => {
           if (e.code === "Enter") {
@@ -28,8 +28,8 @@ function Action({ onClick, action }) {
           }
         }}
       >
-        {action.title}
-      </div>
+        {action.title.toUpperCase()}
+      </button>
     </Tippy>
   )
 }

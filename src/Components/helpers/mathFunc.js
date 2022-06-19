@@ -15,13 +15,13 @@ export const generateNewCash = state => {
     round,
   } = state
   const acqcosts = 300000
-  // const number_of_paying = visitors * cr
+  const number_of_paying = visitors * cr
   const income_per_payer = toFix2(avPrice * commissions * avPayment)
   const cost_of_attraction = +(acqcosts / visitors).toFixed(2)
   const income_per_attracted = toFix2(income_per_payer * cr)
   const differentCost = income_per_attracted - cost_of_attraction
   const profit_from_stream = toFix(differentCost * visitors)
-  // const revenue = number_of_paying * avPrice * avPayment
+  const revenue = toFix(number_of_paying * avPrice * avPayment)
   // const income_from_stream = number_of_paying * income_per_payer
   // const COGS_after_sales = revenue * (1 - commissions) // TODO проверить что бы вычислял правильно, без десятитысячных
   const FIX_COSTS = salary + rent + cost
@@ -47,7 +47,7 @@ export const generateNewCash = state => {
       cost_of_attraction,
       income_per_attracted,
       profit_from_stream,
-      // revenue,
+      revenue,
       // income_from_stream,
       // COGS_after_sales,
       FIX_COSTS,

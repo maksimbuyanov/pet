@@ -5,12 +5,10 @@ import { nav_steps } from "../../helpers/text"
 import { getStep } from "../../../redux/initializing"
 
 function Nav() {
-  // const { pathname } = useLocation()
   const step = useSelector(getStep)
   const navItems = nav_steps.map((text, index) => {
     const styles = ["nav__item"]
     if (step === index) {
-      // if (pathname === `/${index}` || (pathname === `/` && index === 0)) {
       styles.push("nav__item_active")
     }
     return (

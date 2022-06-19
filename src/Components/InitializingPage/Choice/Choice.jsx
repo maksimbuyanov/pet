@@ -51,7 +51,11 @@ function Choice({ positionClass, cardsArr }) {
         ) : (
           <span className="choice__item choice__item_text">{listItems}</span>
         )}
-
+        <span className="choice__cost">
+          Цена действия:
+          {` ${cost} `}
+          руб.
+        </span>
         <div className={titleClass.join(" ")}>{title}</div>
       </div>
     )

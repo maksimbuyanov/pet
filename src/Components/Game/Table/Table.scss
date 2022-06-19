@@ -7,10 +7,6 @@
   border-spacing: 0;
   grid-area: table;
 
-  &__headerLine {
-
-  }
-
   &__headerItem {
     padding: 2px;
     border-right: 1px solid black;
@@ -24,7 +20,7 @@
 
   &__row {
     &:nth-child(odd) {
-      background-color: #2cc3e4;
+      background-color: #ddd;
     }
   }
 
@@ -33,6 +29,7 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     font-size: 12px;
+    text-align: center;
 
     &:last-child {
       border-right: 0;

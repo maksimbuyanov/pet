@@ -2,13 +2,23 @@
 import React, { useRef } from "react"
 import "./Start.scss"
 import { useDispatch, useSelector } from "react-redux"
-import { getCash, getStep } from "../../redux/initializing"
+import {
+  getCash,
+  getSettings,
+  getStep,
+  negativeCash,
+} from "../../redux/initializing"
 import Nav from "./Nav/Nav"
 import { moneySplitter } from "../helpers/parser"
 import Dialog from "../helpers/Dialog/Dialog"
 import Choice from "./Choice/Choice"
-import { setup } from "../helpers/text"
-import { startGame } from "../../redux/initializingActionsCreators"
+import { negativeStart, setup } from "../helpers/text"
+import {
+  nextStep,
+  setCash,
+  setName,
+  startGame,
+} from "../../redux/initializingActionsCreators"
 
 function Start() {
   const dispatch = useDispatch()
@@ -16,17 +26,26 @@ function Start() {
   const cashRef = useRef()
   const cash = useSelector(getCash)
   const step = useSelector(getStep)
+  const settings = useSelector(getSettings)
   const { dialog, choice } = setup[step]
   const isFirstStep = step === 0
-  const isFinalStep = step === setup.length
+  const isFinalStep = step === setup.length - 1
+  const onStartGame = () => {
+    dispatch(startGame())
+  }
   const onSubmitName = e => {
     e.preventDefault()
-    dispatch(startGame(nameRef.current.value))
+    dispatch(setName(nameRef.current.value))
+    dispatch(setCash(+cashRef.current.value))
+    dispatch(nextStep({ title: "", cost: 0 }))
+  }
+  if (cash < 0) {
+    dispatch(negativeCash())
   }
   return (
     <div className="initial">
-      <Nav />
-      <div className="initial__cash">{moneySplitter(cash, " ")}</div>
+      {!isFinalStep && <Nav />}
+      {cash && <div className="initial__cash">{moneySplitter(cash, " ")}</div>}
       <Dialog
         positionClass={dialog.positionClass}
         text={dialog.text}
@@ -68,6 +87,21 @@ function Start() {
           positionClass={choice.positionClass}
           cardsArr={choice.cardsArr}
         />
+      )}
+      {isFinalStep && (
+        <>
+          <ul className="initial__settings-list">
+            {settings.slice(1).map(item => (
+              <li className="initial__settings-item">{item}</li>
+            ))}
+          </ul>
+          <button
+            onClick={onStartGame}
+            className="initial__button initial__button_end"
+          >
+            Вперед!
+          </button>
+        </>
       )}
     </div>
   )

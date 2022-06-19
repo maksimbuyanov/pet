@@ -14,6 +14,7 @@ import {
 import Action from "./Actions/Actions"
 import Table from "./Table/Table"
 import BlackGeese from "./BlackGeese/BlackGeese"
+import { negativeStart } from "../helpers/text"
 
 function Game() {
   const dispatch = useDispatch()
@@ -36,6 +37,15 @@ function Game() {
   }
   if (isActionsEmpty) {
     gameClass.push("game_end")
+  }
+
+  if (text === negativeStart) {
+    return (
+      <div className={gameClass.join(" ")}>
+        <Dialog text={text} positionClass="game__dialog" />
+        <EndGame />
+      </div>
+    )
   }
 
   return (
@@ -84,6 +94,22 @@ function FirstRound() {
   const onScreenClick = e => {
     e.stopPropagation()
     dispatch(applySettings())
+  }
+  return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <div
+      className="game__first-round-block"
+      onClick={onScreenClick}
+      onKeyDown={e => {
+        onScreenClick(e)
+      }}
+    />
+  )
+}
+
+function EndGame() {
+  const onScreenClick = e => {
+    window.location.reload()
   }
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions

@@ -56,7 +56,7 @@ const initialState = {
   cr: 0.7,
   avPayment: 3,
   avPrice: 250,
-  commissions: 0.4,
+  commissions: 0.55,
   salary: 150000, // зп персонала
   amortization: 0,
   rent: 0,
@@ -212,6 +212,8 @@ export const applyAction = action => (dispatch, getState) => {
   dispatch(changeCash(newCash))
   dispatch(filterActions(action.title))
   dispatch(updateRound())
+  const { cash } = getState().initializing
+  tableData.cash = cash
   tableData.action = action.title
   tableData.goose = ""
   const round = getState().game.round + 2
@@ -268,12 +270,15 @@ export const applySettings = () => (dispatch, getState) => {
     switch (item) {
       case SMALL_DISTRICT:
         dispatch(updateRent(150000))
+        dispatch(updateVisitors(2000))
         break
       case SMALL_IN_RED_LINE:
         dispatch(updateRent(300000))
+        dispatch(updateVisitors(3000))
         break
       case BIG_IN_RED_LINE:
         dispatch(updateRent(450000))
+        dispatch(updateVisitors(3500))
         break
       case ECONOMY:
         dispatch(setAmortization(40000))
@@ -288,7 +293,7 @@ export const applySettings = () => (dispatch, getState) => {
         break
     }
   })
-  dispatch(updateVisitors(3000))
+
   const state = getState().game
   const [newCash] = generateNewCash(state)
   dispatch(changeCash(newCash))
