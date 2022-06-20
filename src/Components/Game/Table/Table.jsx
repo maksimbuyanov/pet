@@ -23,6 +23,8 @@ const headerArr = [
   { Header: "На счету", accessor: "cash" },
 ]
 
+const notColoredColumns = ["round", "action", "cost", "goose"]
+
 const defaultTableBottomline = {
   visitors: 0,
   avPrice_arr: [],
@@ -111,26 +113,34 @@ function Table() {
               className="table__row"
             >
               {row.cells.map(cell => {
-                debugger
+                const classNameArr = ["table__cell"]
+                const isNumber = typeof cell.value === "number"
+                let prevValue = cell.value
+                if (+cell.row.id !== 0) {
+                  prevValue = tableData[+cell.row.id - 1][cell.column.id]
+                }
+                let status = cell.value - prevValue
+                if (notColoredColumns.includes(cell.column.id)) {
+                  status = 0
+                }
+                if (+cell.row.id === tableData.length) {
+                  status = 0
+                }
+
+                if (status < 0) {
+                  classNameArr.push("table__cell_minus")
+                } else if (status > 0) {
+                  classNameArr.push("table__cell_plus")
+                }
+
                 if (cell.column.id === "commissions") {
                   return (
                     <td
                       key={cell.id}
                       {...cell.getCellProps()}
-                      className="table__cell"
+                      className={classNameArr.join(" ")}
                     >
                       {`${toFix(cell.value * 100)}%`}
-                    </td>
-                  )
-                }
-                if (typeof cell.value === "number") {
-                  return (
-                    <td
-                      key={cell.id}
-                      {...cell.getCellProps()}
-                      className="table__cell"
-                    >
-                      {moneySplitter(cell.value)}
                     </td>
                   )
                 }
@@ -138,9 +148,9 @@ function Table() {
                   <td
                     key={cell.id}
                     {...cell.getCellProps()}
-                    className="table__cell"
+                    className={classNameArr.join(" ")}
                   >
-                    {cell.render("Cell")}
+                    {isNumber ? moneySplitter(cell.value) : cell.render("Cell")}
                   </td>
                 )
               })}

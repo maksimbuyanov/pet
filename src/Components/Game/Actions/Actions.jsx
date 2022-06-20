@@ -6,8 +6,19 @@ import "tippy.js/dist/tippy.css"
 import "tippy.js/themes/light.css"
 
 import "./Actions.scss"
+import { useDispatch } from "react-redux"
+import { applyAction } from "../../../redux/game"
 
-function Action({ onClick, action }) {
+function Action({ action }) {
+  const dispatch = useDispatch()
+  const [status, setStatus] = React.useState(true)
+  const onClick = () => {
+    if (status) {
+      dispatch(applyAction(action))
+      setStatus(false)
+    }
+  }
+
   return (
     <Tippy
       theme="light"
@@ -17,7 +28,9 @@ function Action({ onClick, action }) {
       duration={300}
     >
       <button
-        className="actions__item"
+        className={
+          status ? `actions__item` : `actions__item actions__item_disabled`
+        }
         onClick={onClick}
         key={action.title}
         type="button"

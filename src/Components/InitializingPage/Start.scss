@@ -44,6 +44,7 @@
 
   &__form {
     display: flex;
+    width: 60%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -54,6 +55,7 @@
     display: flex;
     width: 70%;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: $size;
   }
 
@@ -66,8 +68,8 @@
 
   &__input {
     width: 100%;
+    max-width: 400px;
     padding: $size / 2 $size;
-    margin-right: $size;
     border-radius: $size;
     box-shadow: $shadow-prime;
     font-size: $title-size;

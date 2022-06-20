@@ -14,12 +14,8 @@
     "geese status status status actions"
     "geese dialog dialog dialog actions"
     " geese dialog dialog dialog actions";
-  grid-template-columns: 15% 1fr 20% 10% 20%;
+  grid-template-columns: 15% 1fr 20% 10% 15%;
   grid-template-rows: max-content 1fr 1fr;
-
-  &_pre {
-    grid-template-columns: 15% 1fr 20% 10% 15%;
-  }
 
   &_end {
     grid-template-areas:
@@ -51,11 +47,11 @@
   &__actions {
     grid-area: actions;
 
-    &_right {
+    &-right {
       grid-area: actions;
     }
 
-    &_left {
+    &-left {
       grid-area: geese;
     }
 

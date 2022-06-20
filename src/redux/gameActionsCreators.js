@@ -4,6 +4,7 @@ import {
   SET_AMORTIZATION,
   SET_GOOSE_TEXT,
   SET_TABLE_DATA,
+  SHOW_TABLE,
   UPDATE_ACTION_COST,
   UPDATE_AVPAYMENT,
   UPDATE_AVPRICE,
@@ -88,5 +89,10 @@ export const arrivedGoose = payload => ({
 
 export const setTableData = payload => ({
   type: SET_TABLE_DATA,
+  payload,
+})
+
+export const showTable = payload => ({
+  type: SHOW_TABLE,
   payload,
 })

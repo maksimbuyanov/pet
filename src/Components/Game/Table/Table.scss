@@ -3,15 +3,14 @@
 .table {
   margin-top: $size;
   background-color: white;
-  border-radius: $size;
   border-spacing: 0;
   grid-area: table;
 
   &__headerItem {
-    padding: 2px;
+    padding: 7px;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-    font-size: 10px;
+    font-size: 14px;
 
     &:last-child {
       border-right: 0;
@@ -21,6 +20,10 @@
   &__row {
     &:nth-child(odd) {
       background-color: #ddd;
+    }
+
+    &:last-child {
+      background-color: #9df991;
     }
   }
 
@@ -33,6 +36,14 @@
 
     &:last-child {
       border-right: 0;
+    }
+
+    &_minus {
+      color: #fd1d1d;
+    }
+
+    &_plus {
+      color: #19b907;
     }
   }
 }

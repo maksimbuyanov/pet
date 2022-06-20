@@ -14,5 +14,13 @@
     cursor: pointer;
     font-size: $size;
     text-align: center;
+
+    &_disabled {
+      border-color: white;
+      background-color: #2b2b2b;
+      background-image: unset;
+      color: white;
+      cursor: not-allowed;
+    }
   }
 }

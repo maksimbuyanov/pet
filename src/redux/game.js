@@ -13,6 +13,7 @@ import {
   SET_AMORTIZATION,
   SET_GOOSE_TEXT,
   SET_TABLE_DATA,
+  SHOW_TABLE,
   SMALL_DISTRICT,
   SMALL_IN_RED_LINE,
   STANDART,
@@ -51,7 +52,7 @@ import { shuffle, toFix2 } from "../Components/helpers/parser"
 const initialState = {
   visitors: "",
   round: 1,
-  actions: shuffle(userActions),
+  actions: userActions,
   geese: [],
   cr: 0.7,
   avPayment: 3,
@@ -64,6 +65,7 @@ const initialState = {
   dialogText: startGameText,
   gooseText: null,
   tableData: [],
+  showTable: false,
 }
 
 // eslint-disable-next-line default-param-last
@@ -158,6 +160,12 @@ export default (state = initialState, { type, payload }) => {
         tableData: [...state.tableData, payload],
       }
 
+    case SHOW_TABLE:
+      return {
+        ...state,
+        showTable: payload,
+      }
+
     default:
       return state
   }
@@ -166,12 +174,13 @@ export default (state = initialState, { type, payload }) => {
 export const getRounds = state => state.game.round
 export const isFirstRound = state => state.game.round === 1
 export const getClients = state => state.game.visitors
-export const getActions = state => state.game.actions
+export const getActionsLength = state => state.game.actions.length
 export const getGeese = state => state.game.geese
 export const getDialogText = state => state.game.dialogText
 export const getGooseText = state => state.game.gooseText
 export const getTableData = state => state.game.tableData
 export const getGeeseLength = state => state.game.geese.length > 0
+export const getShowTable = state => state.game.showTable
 
 export const applyAction = action => (dispatch, getState) => {
   Object.keys(action).forEach(key => {
@@ -295,8 +304,14 @@ export const applySettings = () => (dispatch, getState) => {
   })
 
   const state = getState().game
-  const [newCash] = generateNewCash(state)
+  const [newCash, tableData] = generateNewCash(state)
+
   dispatch(changeCash(newCash))
   dispatch(updateDialogText(secondStepText))
   dispatch(updateRound())
+  const { cash } = getState().initializing
+  tableData.cash = cash
+  tableData.action = ""
+  tableData.goose = ""
+  dispatch(setTableData(tableData))
 }

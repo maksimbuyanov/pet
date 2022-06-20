@@ -4,38 +4,37 @@ import { useDispatch, useSelector } from "react-redux"
 import Status from "./Status/Status"
 import Dialog from "../helpers/Dialog/Dialog"
 import {
-  applyAction,
   applySettings,
-  getActions,
+  getActionsLength,
   getDialogText,
-  getGeeseLength,
+  getShowTable,
   isFirstRound,
 } from "../../redux/game"
 import Action from "./Actions/Actions"
 import Table from "./Table/Table"
-import BlackGeese from "./BlackGeese/BlackGeese"
-import { negativeStart } from "../helpers/text"
+import { finalGameText, negativeStart, userActions } from "../helpers/text"
+import { shuffle } from "../helpers/parser"
+import { showTable } from "../../redux/gameActionsCreators"
+
+const [leftActionsCard, rightActionsCard] = (() => {
+  const allActions = shuffle(userActions)
+  const [leftAC, rightAC] = [allActions.slice(0, 6), allActions.slice(6)]
+  const leftActionsCardArr = leftAC.map(action => (
+    <Action action={action} key={action.title} />
+  ))
+  const rightActionsCardArr = rightAC.map(action => (
+    <Action action={action} key={action.title} />
+  ))
+  return [leftActionsCardArr, rightActionsCardArr]
+})()
 
 function Game() {
-  const dispatch = useDispatch()
-  const actions = useSelector(getActions)
+  const isActionsNoEmpty = useSelector(getActionsLength)
   const text = useSelector(getDialogText)
   const firstRound = useSelector(isFirstRound)
-  const actionsCards = actions.map(action => {
-    const onClick = () => {
-      dispatch(applyAction(action))
-    }
-    return <Action onClick={onClick} action={action} key={action.title} />
-  })
-
-  const isGeeseArrived = useSelector(getGeeseLength)
-  const isActionsEmpty = !actions.length
-
+  const isShowTable = useSelector(getShowTable)
   const gameClass = ["game"]
-  if (!isGeeseArrived) {
-    gameClass.push("game_pre")
-  }
-  if (isActionsEmpty) {
+  if (isShowTable) {
     gameClass.push("game_end")
   }
 
@@ -47,42 +46,37 @@ function Game() {
       </div>
     )
   }
+  if (isShowTable) {
+    return (
+      <div className={gameClass.join(" ")}>
+        <Status />
+        <Table />
+      </div>
+    )
+  }
+
+  if (!isActionsNoEmpty) {
+    return (
+      <div className={gameClass.join(" ")}>
+        <Status />
+        <Dialog text={finalGameText} positionClass="game__dialog" />
+        <LastRound />
+      </div>
+    )
+  }
 
   return (
     <div className={gameClass.join(" ")}>
       <Status />
-      {!isActionsEmpty && <Dialog text={text} positionClass="game__dialog" />}
+      <Dialog text={text} positionClass="game__dialog" />
       {firstRound && <FirstRound />}
 
-      {isGeeseArrived && !isActionsEmpty && (
+      {!firstRound && (
         <>
-          <div className="actions game__actions">{actionsCards}</div>
-          <BlackGeese />
+          <div className="actions game__actions-right">{leftActionsCard}</div>
+          <div className="actions game__actions-left">{rightActionsCard}</div>
         </>
       )}
-
-      {!isGeeseArrived && (
-        <>
-          <div
-            className={
-              firstRound
-                ? "game__actions_hidden"
-                : "actions game__actions_right"
-            }
-          >
-            {actionsCards.filter((action, index) => index < 6)}
-          </div>
-          <div
-            className={
-              firstRound ? "game__actions_hidden" : "actions game__actions_left"
-            }
-          >
-            {actionsCards.filter((action, index) => index > 5)}
-          </div>
-        </>
-      )}
-
-      {isActionsEmpty && <Table />}
     </div>
   )
 }
@@ -94,6 +88,24 @@ function FirstRound() {
   const onScreenClick = e => {
     e.stopPropagation()
     dispatch(applySettings())
+  }
+  return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <div
+      className="game__first-round-block"
+      onClick={onScreenClick}
+      onKeyDown={e => {
+        onScreenClick(e)
+      }}
+    />
+  )
+}
+
+function LastRound() {
+  const dispatch = useDispatch()
+  const onScreenClick = e => {
+    e.stopPropagation()
+    dispatch(showTable(true))
   }
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions

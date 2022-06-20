@@ -43,6 +43,7 @@ export const UPDATE_DIALOG_TEXT = "UPDATE_DIALOG_TEXT"
 export const UPDATE_RENT = "UPDATE_RENT"
 export const ARRIVED_GEESE = "ARRIVED_GEESE"
 export const SET_TABLE_DATA = "SET_TABLE_DATA"
+export const SHOW_TABLE = "SHOW_TABLE"
 
 export const NEXT_STEP = "NEXT_STEP"
 export const TOGGLE_GAME = "TOGGLE_GAME"
