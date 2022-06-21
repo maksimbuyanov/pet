@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React, { useRef } from "react"
+import NumberFormat from "react-number-format"
 import "./Start.scss"
 import { useDispatch, useSelector } from "react-redux"
 import {
@@ -20,6 +21,9 @@ import {
   startGame,
 } from "../../redux/initializingActionsCreators"
 
+const MAX_VAL = 10_000_000
+const withValueLimit = ({ floatValue }) => floatValue <= MAX_VAL
+
 function Start() {
   const dispatch = useDispatch()
   const nameRef = useRef()
@@ -35,8 +39,9 @@ function Start() {
   }
   const onSubmitName = e => {
     e.preventDefault()
+    if (+cashRef.current.state.numAsString < 1_000_000) return
     dispatch(setName(nameRef.current.value))
-    dispatch(setCash(+cashRef.current.value))
+    dispatch(setCash(+cashRef.current.state.numAsString))
     dispatch(nextStep({ title: "", cost: 0 }))
   }
   if (cash < 0) {
@@ -65,16 +70,20 @@ function Start() {
               autoFocus={Boolean(1)}
             />
           </label>
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="cash" className="initial__label">
             <span className="initial__text">Твой стартовый капитал:</span>
-            <input
-              min={1_000_000}
-              max={10_000_000}
-              type="number"
-              ref={cashRef}
-              name="cash"
-              required={Boolean(1)}
+            <NumberFormat
+              thousandsGroupStyle="thousand"
               className="initial__input"
+              displayType="input"
+              type="text"
+              thousandSeparator={" "}
+              required
+              defaultValue={1_000_000}
+              name="cash"
+              ref={cashRef}
+              isAllowed={withValueLimit}
             />
           </label>
           <button type="submit" className="initial__button">
@@ -96,10 +105,10 @@ function Start() {
               <li className="initial__settings-item">{item}</li>
             ))}
           </ul>
-          {/* eslint-disable-next-line react/button-has-type */}
           <button
             onClick={onStartGame}
             className="initial__button initial__button_end"
+            type="button"
           >
             Вперед!
           </button>

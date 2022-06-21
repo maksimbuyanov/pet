@@ -60,6 +60,7 @@ function Choice({ positionClass, cardsArr }) {
       </div>
     )
   })
+
   return <div className={className.join(" ")}>{cards}</div>
 }
 
