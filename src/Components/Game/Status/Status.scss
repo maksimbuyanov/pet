@@ -18,6 +18,7 @@
   }
 
   &__info {
+    position: relative;
     display: flex;
     align-items: center;
     align-self: center;
@@ -72,6 +73,31 @@
       height: $size2;
       margin-right: $size;
       content: url("../../../image/clients_1_mono.svg");
+    }
+  }
+
+  &__img {
+    width: $size2;
+    height: $size2;
+    transition: 0.8s ease;
+
+    &:hover {
+      transform: rotate(270deg);
+    }
+  }
+
+  &__refresh {
+    position: absolute;
+    right: -70px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: $size;
+    font-size: 22px;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }
