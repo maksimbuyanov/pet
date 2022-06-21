@@ -175,7 +175,7 @@ export const getRounds = state => state.game.round
 export const isFirstRound = state => state.game.round === 1
 export const getClients = state => state.game.visitors
 export const getActionsLength = state => state.game.actions.length
-export const getGeese = state => state.game.geese
+export const getGoose = state => state.game.geese[state.game.geese.length - 1]
 export const getDialogText = state => state.game.dialogText
 export const getGooseText = state => state.game.gooseText
 export const getTableData = state => state.game.tableData

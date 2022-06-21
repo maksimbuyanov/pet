@@ -24,6 +24,7 @@
 
     &:last-child {
       background-color: #9df991;
+      font-weight: bold;
     }
   }
 
@@ -39,11 +40,30 @@
     }
 
     &_minus {
-      color: #fd1d1d;
+      &::before {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+        background-image: url("../../../image/triangle_red.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: "";
+        transform: rotate(0.5turn);
+      }
     }
 
     &_plus {
-      color: #19b907;
+      &::before {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+        background-image: url("../../../image/triangle_green.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: "";
+      }
     }
   }
 }

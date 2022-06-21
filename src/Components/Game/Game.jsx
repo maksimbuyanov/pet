@@ -54,7 +54,6 @@ function Game() {
       </div>
     )
   }
-
   if (!isActionsNoEmpty) {
     return (
       <div className={gameClass.join(" ")}>
@@ -120,7 +119,7 @@ function LastRound() {
 }
 
 function EndGame() {
-  const onScreenClick = e => {
+  const onScreenClick = () => {
     window.location.reload()
   }
   return (

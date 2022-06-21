@@ -37,7 +37,7 @@ const defaultTableBottomline = {
   tax: 0,
   round: "",
   net_profit: 0,
-  action: "",
+  action: "Итог",
   goose: "",
   cash: 0,
 }

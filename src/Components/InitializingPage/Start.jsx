@@ -12,7 +12,7 @@ import Nav from "./Nav/Nav"
 import { moneySplitter } from "../helpers/parser"
 import Dialog from "../helpers/Dialog/Dialog"
 import Choice from "./Choice/Choice"
-import { negativeStart, setup } from "../helpers/text"
+import { setup } from "../helpers/text"
 import {
   nextStep,
   setCash,
@@ -55,7 +55,7 @@ function Start() {
       {isFirstStep && (
         <form className="initial__form" onSubmit={onSubmitName}>
           <label htmlFor="name" className="initial__label">
-            <span className="initial__text">Введите название заведения: </span>
+            <span className="initial__text">Введи название заведения: </span>
             <input
               ref={nameRef}
               type="text"
@@ -66,7 +66,7 @@ function Start() {
             />
           </label>
           <label htmlFor="cash" className="initial__label">
-            <span className="initial__text">Сколько налички у тебя есть:</span>
+            <span className="initial__text">Твой стартовый капитал:</span>
             <input
               min={1_000_000}
               max={10_000_000}
@@ -90,11 +90,13 @@ function Start() {
       )}
       {isFinalStep && (
         <>
+          <div className="initial__title">Твои выбранные опции:</div>
           <ul className="initial__settings-list">
             {settings.slice(1).map(item => (
               <li className="initial__settings-item">{item}</li>
             ))}
           </ul>
+          {/* eslint-disable-next-line react/button-has-type */}
           <button
             onClick={onStartGame}
             className="initial__button initial__button_end"

@@ -103,6 +103,13 @@
     }
   }
 
+  &__title {
+    margin-top: $size;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+  }
+
   &__settings-list {
     display: flex;
     width: max-content;
@@ -111,7 +118,6 @@
     margin: $size auto;
     background-color: white;
     border-radius: $size;
-
   }
 
   &__settings-item {
