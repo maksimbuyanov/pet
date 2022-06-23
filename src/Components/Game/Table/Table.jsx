@@ -29,7 +29,7 @@ const defaultTableBottomline = {
   visitors: 0,
   avPrice_arr: [],
   avPayment_arr: [],
-  cost_arr: [],
+  cost: "",
   commissions_arr: [],
   income_per_payer_arr: [],
   profit_from_stream_arr: [],
@@ -57,7 +57,6 @@ function Table() {
       acc.revenue += item.revenue
       acc.tax += item.tax
       acc.net_profit += item.net_profit
-      acc.cost_arr.push(item.cost)
       acc.avPrice_arr.push(item.avPrice)
       acc.avPayment_arr.push(item.avPayment)
       acc.commissions_arr.push(item.commissions)
@@ -67,7 +66,6 @@ function Table() {
       result.push(item)
       return acc
     }, defaultTableBottomline)
-    bottomLine.cost = avValue(bottomLine.cost_arr)
     bottomLine.avPrice = avValue(bottomLine.avPrice_arr)
     bottomLine.avPayment = avValue(bottomLine.avPayment_arr)
     bottomLine.commissions = avValue(bottomLine.commissions_arr)

@@ -22,7 +22,15 @@ import {
 } from "../../redux/initializingActionsCreators"
 
 const MAX_VAL = 10_000_000
-const withValueLimit = ({ floatValue }) => floatValue <= MAX_VAL
+const withValueLimit = ({ floatValue }) => {
+  if (floatValue <= MAX_VAL) {
+    return true
+  }
+  if (!floatValue) {
+    return true
+  }
+  return false
+}
 
 function Start() {
   const dispatch = useDispatch()
@@ -80,7 +88,7 @@ function Start() {
               type="text"
               thousandSeparator={" "}
               required
-              defaultValue={1_000_000}
+              placeholder={1_000_000}
               name="cash"
               ref={cashRef}
               isAllowed={withValueLimit}
