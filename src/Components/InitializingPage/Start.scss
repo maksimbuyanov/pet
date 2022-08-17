@@ -62,7 +62,7 @@
   &__text {
     margin-right: $size;
     color: white;
-    font-size: $title-size;
+    font-size: $title-size-1400;
     white-space: nowrap;
   }
 
@@ -127,6 +127,88 @@
 
     &:last-child {
       border-right: unset;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .initial {
+    &__form {
+      width: 80%;
+    }
+
+    &__cash {
+      top: 20%;
+      left: 0;
+      font-size: $title-size-1400;
+      line-height: $size2;
+
+      &::before {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .initial {
+    &__form {
+      width: 100%;
+    }
+
+    &__settings-list {
+      max-width: 100%;
+    }
+
+    &__settings-item {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .initial {
+    &__text {
+      font-size: 15px;
+    }
+
+    &__button {
+      padding: $size-1024 / 2 $size-1024;
+      border-radius: $size-1024;
+      font-size: $title-size-1400;
+      line-height: $size;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      &:focus {
+        transform: translateY(-5px);
+      }
+    }
+
+    &__input {
+      width: 100%;
+      max-width: 400px;
+      padding: $size-1024 / 2 $size-1024;
+      border-radius: $size-1024;
+      font-size: $title-size-1400;
+      line-height: $size;
+    }
+
+    &__cash {
+      top: 18%;
+      padding: 10px;
+
+      &::before {
+        margin-right: 5px;
+      }
+    }
+
+    &__settings-item {
+      font-size: 10px;
     }
   }
 }

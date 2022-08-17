@@ -6,6 +6,7 @@ $size4: $size * 4 ;
 $icon-size: 25px;
 $radius-size: 15px;
 $signal-size: 20px;
+$size-1024: 10px;
 
 // Color
 $light-green: #54d160;
@@ -80,7 +81,16 @@ $text-color-grey: #636363;
 $text-color-black: #000;
 $text-color-white: #fff;
 $nav-line-height: 15px;
+$nav-line-height-1200: 10px;
+$nav-line-height-1024: 8px;
+
+//  title size
 $title-size: 25px;
+$title-size-1400: 20px;
+
+//  text size
+$text-size: 18px;
+$text-size-1400: 15px;
 
 // Fonts
 $font-roboto: roboto, sans-serif;
@@ -97,7 +107,7 @@ $color-signal-blue: $blue;
 
 // @media
 
-$screen-laptop: 1038px;
+$screen-laptop: 1400px;
 $screen-tablet: 768px;
 $screen-mobile: 425px;
 

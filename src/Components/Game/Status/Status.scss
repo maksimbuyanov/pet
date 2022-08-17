@@ -101,3 +101,11 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .status {
+    &__info {
+      padding: 10px $size;
+    }
+  }
+}

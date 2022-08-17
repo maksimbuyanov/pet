@@ -24,3 +24,11 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .actions {
+    &__item {
+      padding: 10px;
+    }
+  }
+}

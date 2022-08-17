@@ -84,3 +84,73 @@
     transition: 0.3s ease;
   }
 }
+
+@media (max-width: 1200px) {
+  .nav {
+    &__item {
+      font-size: $nav-line-height-1200;
+      line-height: $nav-line-height-1200;
+
+      &::before {
+        border-top: ($nav-line-height-1200 / 2) + $size solid transparent; // высота строки пополам + падинг сверху
+        border-bottom: ($nav-line-height-1200 / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      }
+
+      &::after {
+        border-top: ($nav-line-height-1200 / 2) + $size  solid transparent; // высота строки пополам + паддинг сверху
+        border-bottom: ($nav-line-height-1200 / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      }
+
+      &_active {
+        background-color: #00b3ff;
+
+        &::after {
+          border-left: 25px solid #00b3ff;
+        }
+      }
+    }
+
+    &::after {
+      border-top: ($nav-line-height-1200 / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-line-height-1200 / 2) + $size solid transparent; // высота строки пополам + паддинг сверху
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    &__item {
+      padding: $size-1024 $size-1024 $size-1024 ($size-1024 * 2);
+      font-size: $nav-line-height-1200;
+      line-height: $nav-line-height-1024;
+
+      &::before {
+        border-top: ($nav-line-height-1024 / 2) + $size-1024 solid transparent; // высота строки пополам + падинг сверху
+        border-bottom: ($nav-line-height-1024 / 2) + $size-1024 solid transparent; // высота строки пополам + паддинг сверху
+        border-left: $size solid gold;
+      }
+
+      &::after {
+        right: -$size;
+        border-top: ($nav-line-height-1024 / 2) + $size-1024  solid transparent; // высота строки пополам + паддинг сверху
+        border-bottom: ($nav-line-height-1024 / 2) + $size-1024 solid transparent; // высота строки пополам + паддинг сверху
+        border-left: $size solid $nav-active-link;
+      }
+
+      &_active {
+        background-color: #00b3ff;
+
+        &::after {
+          border-left: $size solid #00b3ff;
+        }
+      }
+    }
+
+    &::after {
+      right: -$size;
+      border-top: ($nav-line-height-1024 / 2) + $size-1024 solid transparent; // высота строки пополам + паддинг сверху
+      border-bottom: ($nav-line-height-1024 / 2) + $size-1024 solid transparent; // высота строки пополам + паддинг сверху
+      border-left: $size solid gold;
+    }
+  }
+}

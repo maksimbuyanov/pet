@@ -64,3 +64,16 @@
     grid-area: geese;
   }
 }
+
+@media (max-width: 1200px) {
+  .game {
+    grid-template-columns: 20% 1fr 20% 10% 20%;
+    &_end {
+      grid-template-areas:
+      "status"
+      "table";
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content 1fr;
+    }
+  }
+}

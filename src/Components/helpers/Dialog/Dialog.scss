@@ -74,3 +74,27 @@
     line-height: 120%;
   }
 }
+
+@media (max-width: 1400px) {
+  .cloud {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dialog {
+    justify-content: flex-end;
+  }
+
+  .cloud {
+    &__title {
+      font-size: 18px;
+      line-height: 18px;
+    }
+
+    &__text {
+      font-size: 15px;
+      line-height: 120%;
+    }
+  }
+}
